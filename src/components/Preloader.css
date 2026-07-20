@@ -1,0 +1,82 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-ink);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.preloader-overlay.fade-out {
+  transform: translateY(-100%);
+  opacity: 0.9;
+}
+
+.preloader-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(199, 255, 36, 0.16) 0%, rgba(10, 11, 10, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-logo {
+  width: 2.85rem;
+  height: 2.85rem;
+  background-color: var(--color-lime);
+  color: var(--color-ink);
+  border-radius: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 0 25px rgba(199, 255, 36, 0.45);
+}
+
+.preloader-counter {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--color-paper);
+  line-height: 1;
+  margin-bottom: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.preloader-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--color-paper-muted);
+  text-indent: 0.35em; /* balances spacing */
+}

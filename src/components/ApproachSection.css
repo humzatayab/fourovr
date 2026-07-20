@@ -1,0 +1,120 @@
+.approach-section {
+  background-color: #f4f4f5;
+  color: #0a0b0a;
+  padding: 8rem 0;
+  position: relative;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.approach-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: sticky;
+  top: 7rem;
+}
+
+.approach-badge {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #71717a;
+  margin-bottom: 2rem;
+}
+
+.approach-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  color: #0a0b0a;
+  margin-bottom: 1.75rem;
+}
+
+.approach-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #52525b;
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+.approach-btn {
+  box-shadow: 0 10px 25px -5px rgba(199, 255, 36, 0.4);
+}
+
+.approach-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding-top: 1rem;
+}
+
+.step-card {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateX(6px);
+}
+
+.step-id {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  width: 2rem;
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+}
+
+.step-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0a0b0a;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.step-desc {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #52525b;
+  max-width: 500px;
+}
+
+@media (max-width: 1024px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .approach-left {
+    position: relative;
+    top: 0;
+  }
+}

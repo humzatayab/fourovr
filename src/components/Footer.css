@@ -1,0 +1,227 @@
+.footer-section {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  padding: 5.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1.3fr;
+  gap: 3.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-paper);
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-paper-muted);
+  max-width: 290px;
+}
+
+.footer-heading {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-list a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-list a:hover {
+  color: var(--color-lime);
+  transform: translateX(3px);
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.contact-icon {
+  color: var(--color-lime);
+  flex-shrink: 0;
+}
+
+.footer-contact-list a {
+  color: rgba(255, 255, 255, 0.88);
+  transition: color 0.2s ease;
+}
+
+.footer-contact-list a:hover {
+  color: var(--color-lime);
+}
+
+/* Sub-Footer Bar */
+.footer-sub-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 0 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.sub-bar-left {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-paper-muted);
+}
+
+.sub-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.sub-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.social-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-paper);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.social-icon-btn:hover {
+  border-color: var(--color-lime);
+  color: var(--color-lime);
+  background: rgba(199, 255, 36, 0.08);
+  transform: translateY(-2px);
+}
+
+.scroll-top-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #0a0b0a;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.scroll-top-btn:hover {
+  background: var(--color-lime);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -5px var(--color-lime);
+}
+
+/* Huge Giant Scrolling Text Banner at Bottom */
+.giant-footer-marquee {
+  background-color: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.giant-marquee-track {
+  display: flex;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 0.9;
+  text-transform: uppercase;
+  animation: giantMarquee 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes giantMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-sub-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,79 @@
+.client-logos-section {
+  background-color: var(--color-ink);
+  padding: 3.5rem 0 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.client-logos-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2.75rem;
+}
+
+.logos-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.logos-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  white-space: nowrap;
+  animation: marqueeLogos 30s linear infinite;
+  will-change: transform;
+}
+
+/* PAUSE SCROLL ON HOVER */
+.logos-marquee-wrapper:hover .logos-marquee-track {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+  filter: grayscale(1);
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+/* REVEAL FULL COLOR / LIME HIGHLIGHT & ZOOM ON HOVER */
+.logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0) brightness(1.2);
+  transform: scale(1.08);
+}
+
+.logo-text-graphic {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.logo-item:hover .logo-text-graphic {
+  color: var(--color-lime);
+}
+
+@keyframes marqueeLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}

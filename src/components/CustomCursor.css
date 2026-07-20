@@ -1,0 +1,48 @@
+.custom-cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-lime);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, background-color 0.2s ease;
+  box-shadow: 0 0 8px rgba(199, 255, 36, 0.8);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(199, 255, 36, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+  box-shadow: 0 0 12px rgba(199, 255, 36, 0.15);
+}
+
+.custom-cursor-dot.hovered {
+  transform: translate(-50%, -50%) scale(1.6);
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.custom-cursor-ring.hovered {
+  width: 46px;
+  height: 46px;
+  border-color: rgba(199, 255, 36, 0.85);
+  background-color: rgba(199, 255, 36, 0.08);
+}
+
+@media (max-width: 768px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}

@@ -1,0 +1,38 @@
+.global-marquee-bar {
+  background-color: #0a0b0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.15rem 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.global-marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.global-marquee-item {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-paper-muted);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.global-marquee-star {
+  color: var(--color-lime);
+  font-size: 0.85rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
