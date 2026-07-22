@@ -2,18 +2,19 @@ import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Bot, X, Send, MessageSquare, Sparkles, CheckCircle2, RefreshCw, SendHorizontal, PhoneCall, ExternalLink, FileText, LayoutGrid, DollarSign } from 'lucide-react';
 import './AIChatWidget.css';
+import logodp from '../assets/dp.png';
 
 const WHATSAPP_NUMBER = '923204108187';
 const EMAIL_DESTINATION = 'fourovr@gmail.com';
 
 const SYSTEM_PROMPT = `
 You are Nova, Lead AI Strategy & Sales Consultant at FOUROVR Agency (Lahore, Pakistan).
-Contact: WhatsApp +92 320 4108187 | Email: fourovr@gmail.com | Portfolio URL: /work
+WhatsApp: +92 320 4108187 | Email: fourovr@gmail.com | Portfolio URL: /work
 
 YOUR CRITICAL OPERATING RULES:
 1. MATCH USER'S LANGUAGE EXACTLY:
-   - If the user types in Roman Urdu (e.g. "nice mian dhka hn axah kam basicali mai hata hu ek person daily mari post kry or muaja abto kaia charges hogy asia ky"), reply in natural, fluent, highly convincing Roman Urdu!
-   - If user types in English, Urdu script, Arabic, Spanish, French, etc., reply in that exact language.
+   - If the user types in Roman Urdu (e.g. "muaj apna bradn goeek ky liay kuch social media post banwani hn rates kya honge"), reply in natural, fluent, highly convincing Roman Urdu!
+   - If user types in English, Urdu script, Arabic, Spanish, French, Hindi, etc., match that exact language!
 
 2. CONVINCING PRICING & RATES RESPONSES (NEVER REJECT OR PUSH AWAY):
    - When a client asks about rates, charges, pricing, or costs (e.g. "kaia charges hogy", "rates kya hain", "how much cost"):
@@ -22,10 +23,16 @@ YOUR CRITICAL OPERATING RULES:
      c) Pitch our high conversion work and recommend checking our [View Portfolio](/work).
      d) Ask them to share their estimated budget or fill the quick inquiry form below so our team can send a custom discounted proposal.
 
-3. CONVINCING SALES PERSONA:
+3. CLOSING DEALS & INVOICE FORM PROMPT (VERY IMPORTANT):
+   - Whenever the user agrees or indicates deal finalization (e.g., "perfect", "ok done", "thk hai", "final hai", "deal done", "yes let's start"):
+     a) Respond with immense enthusiasm!
+     b) Tell them: "Zabardast! Deal final! Aap niche diya gaya quick form fill kar ke submit kar dein (Name, Email, WhatsApp Phone, Budget) — Hamara Account Manager fowran aapko official Invoice, project proposal, aur onboarding details email kar dega!"
+     c) Prompt them to complete the 4-field inquiry form right below.
+
+4. CONVINCING SALES PERSONA:
    - Be enthusiastic, reassuring, professional, and convincing. Prove why FOUROVR is the best choice.
 
-4. FORMATTING:
+5. FORMATTING:
    - Use clean, modern Markdown (bolding key terms, short bullet points). Keep responses concise (2-3 short paragraphs max).
 `;
 
@@ -102,56 +109,136 @@ export default function AIChatWidget() {
     if (!textToSend) setInputText('');
     setIsTyping(true);
 
-    // Auto-trigger lead form if user asks about rates/charges or quote
-    const textLower = text.toLowerCase();
+    // Auto-trigger lead form if pricing/quote/budget or closing signals mentioned
+    const tLower = text.toLowerCase();
     if (
-      textLower.includes('charge') ||
-      textLower.includes('rate') ||
-      textLower.includes('price') ||
-      textLower.includes('cost') ||
-      textLower.includes('package') ||
-      textLower.includes('budget') ||
-      textLower.includes('inquiry') ||
-      textLower.includes('quote')
+      tLower.includes('done') ||
+      tLower.includes('perfect') ||
+      tLower.includes('ok') ||
+      tLower.includes('final') ||
+      tLower.includes('deal') ||
+      tLower.includes('agree') ||
+      tLower.includes('chalo') ||
+      tLower.includes('invoice') ||
+      tLower.includes('charge') ||
+      tLower.includes('rate') ||
+      tLower.includes('price') ||
+      tLower.includes('cost') ||
+      tLower.includes('package') ||
+      tLower.includes('budget') ||
+      tLower.includes('inquiry') ||
+      tLower.includes('quote')
     ) {
       setShowLeadForm(true);
     }
 
     let aiReplyText = '';
 
+    const groqKey = import.meta.env.VITE_GROQ_API_KEY || import.meta.env.GROQ_API_KEY;
+    const geminiKey = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.GEMINI_API_KEY;
+
     try {
-      // Attempt Puter.js GPT-4o-mini client AI completion
-      if (window.puter && window.puter.ai && window.puter.ai.chat) {
-        const historyForPuter = [
-          { role: 'system', content: SYSTEM_PROMPT },
-          ...newMessages.slice(-6).map((m) => ({
-            role: m.sender === 'user' ? 'user' : 'assistant',
-            content: m.text
-          }))
-        ];
+      // 1. Try Groq API (gsk_...) first if key is present
+      if (groqKey && groqKey.startsWith('gsk_')) {
+        const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${groqKey.trim()}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'llama-3.3-70b-versatile',
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              ...newMessages.slice(-6).map((m) => ({
+                role: m.sender === 'user' ? 'user' : 'assistant',
+                content: m.text
+              }))
+            ]
+          })
+        });
 
-        const res = await window.puter.ai.chat(historyForPuter, { model: 'gpt-4o-mini' });
+        const groqData = await groqRes.json();
+        if (groqRes.ok && groqData.choices?.[0]?.message?.content) {
+          aiReplyText = groqData.choices[0].message.content;
+        } else if (groqData.error) {
+          console.warn('Groq API Error:', groqData.error.message);
+        }
+      }
 
-        if (typeof res === 'string') {
-          aiReplyText = res;
-        } else if (res && res.message && res.message.content) {
-          aiReplyText = res.message.content;
-        } else if (res && res.text) {
-          aiReplyText = res.text;
+      // 2. Try Direct Gemini REST API if no Groq response yet
+      if (!aiReplyText && geminiKey && !geminiKey.includes('YOUR_GEMINI_API_KEY')) {
+        const chatContext = newMessages
+          .slice(-6)
+          .map((m) => `${m.sender.toUpperCase()}: ${m.text}`)
+          .join('\n');
+
+        const fullPrompt = `${SYSTEM_PROMPT}\n\nCHAT HISTORY:\n${chatContext}\n\nNOVA:`;
+
+        const modelsToTry = ['gemini-2.0-flash', 'gemini-2.0-flash-lite-preview', 'gemini-1.5-flash-8b'];
+
+        for (const modelName of modelsToTry) {
+          try {
+            const response = await fetch(
+              `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${geminiKey.trim()}`,
+              {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  contents: [{ role: 'user', parts: [{ text: fullPrompt }] }]
+                })
+              }
+            );
+
+            const data = await response.json();
+
+            if (response.ok && data.candidates?.[0]?.content?.parts?.[0]?.text) {
+              aiReplyText = data.candidates[0].content.parts[0].text;
+              break;
+            } else if (response.status === 429) {
+              aiReplyText = `⚠️ **Gemini API Key Quota Exceeded (429)**\n\nAapki Gemini API key ka daily free quota poora ho gaya hai. Aap [Google AI Studio (aistudio.google.com/app/apikey)](https://aistudio.google.com/app/apikey) se new 100% Free API Key banayein aur \`.env\` me update karein!`;
+              break;
+            } else if (data.error && data.error.message && !data.error.message.includes('not found')) {
+              console.warn(`Gemini Error on ${modelName}:`, data.error.message);
+            }
+          } catch (mErr) {
+            console.warn(`Fetch error for ${modelName}:`, mErr);
+          }
+        }
+      }
+
+      // 2. Try Vercel Serverless Function /api/chat if no direct key
+      if (!aiReplyText) {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: newMessages.slice(-6).map((m) => ({
+              role: m.sender === 'user' ? 'user' : 'assistant',
+              content: m.text
+            }))
+          })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.reply) {
+            aiReplyText = data.reply;
+          }
         }
       }
     } catch (err) {
-      console.warn('Puter AI fallback activated:', err);
+      console.warn('Gemini API fetch fallback:', err);
     }
 
-    // Fallback AI Sales Engine if Puter is loading/offline
+    // 3. Fallback response generator if API key is not yet set up
     if (!aiReplyText) {
-      aiReplyText = generateSmartFallbackReply(text);
+      aiReplyText = generateFallbackAIReply(text);
     }
 
     setIsTyping(false);
 
-    let options = ['📩 Fill Quick Quote Form', '📁 View Portfolio (/work)', '📲 Chat on WhatsApp'];
+    const options = ['📩 Fill Quick Quote Form', '📁 View Portfolio (/work)', '📲 Chat on WhatsApp'];
 
     setMessages((prev) => [
       ...prev,
@@ -165,11 +252,11 @@ export default function AIChatWidget() {
     ]);
   };
 
-  const generateSmartFallbackReply = (text) => {
+  const generateFallbackAIReply = (text) => {
     const t = text.toLowerCase();
 
-    if (t.includes('charge') || t.includes('rate') || t.includes('price') || t.includes('cost') || t.includes('budget') || t.includes('post')) {
-      return `Bohot shukriya inquiry ke liye! Daily social media posts aur branding ke liye hum FOUROVR me dedicated graphic designer & content strategist assign karte hain jo aapke brand ke liye high-converting graphics, reels aur captions design karta hai.
+    if (t.includes('charge') || t.includes('rate') || t.includes('price') || t.includes('cost') || t.includes('budget') || t.includes('post') || t.includes('social') || t.includes('brand') || t.includes('graphic')) {
+      return `Bohot shukriya inquiry ke liye! Social media management aur daily graphics/branding ke liye hum FOUROVR me dedicated graphic designer & content strategist assign karte hain jo aapke brand ke liye high-converting graphics, reels aur captions design karta hai.
 
 **Charges ke baare me**: Hamare monthly packages customized hote hain (e.g. 15 posts/month ya 30 daily posts). 
 
@@ -178,14 +265,14 @@ Aap tension **bilkul na lein!** Hum FOUROVR me aapke exact budget ke mutabiq bes
 Aap hamare recent design projects check kar sakte hain hamare [View Portfolio](/work) page par!
 
 Niche diya gaya chota sa form fill kar dein (Name, Email, Phone, Budget) — FOUROVR ki team working hours me aapko exact custom discounted proposal send kar degi!`;
-    } else if (t.includes('website') || t.includes('web') || t.includes('app')) {
-      return `Zabardast! Hum React & Next.js par ultra-fast web platforms build karte hain jo 95+ Lighthouse speed score guarantee karti hain.
+    } else if (t.includes('website') || t.includes('web') || t.includes('app') || t.includes('dev')) {
+      return `Zabardast! Hum React & Next.js par ultra-fast web platforms engineer karte hain jo 95+ Lighthouse speed score aur high conversion rates guarantee karti hain.
 
-Rates aur package timeline aapke requirements par depend karte hain, lekin hum aapke budget ke mutabiq tailor karke flexible payment plans bhi offer karte hain.
+Rates aur package timeline aapke exact requirements par depend karte hain, lekin hum aapke budget ke mutabiq flexible custom plans bhi offer karte hain.
 
-Aap hamare completed web systems dekh sakte hain hamare [View Portfolio](/work) par! Niche form fill kar dein custom quote ke liye.`;
+Aap hamare completed web systems dekh sakte hain hamare [View Portfolio](/work) par! Niche form fill kar dein instant quote ke liye.`;
     } else {
-      return `Shukriya! FOUROVR me hum high-converting graphic designs, web platforms, SEO, aur AI automations design karte hain.
+      return `Shukriya! FOUROVR me hum high-converting graphic designs, custom web platforms, SEO, aur AI automations design karte hain.
 
 Aap tension na lein, hum aapke exact brand goals aur budget ke mutabiq complete growth solution offer karenge.
 
@@ -316,11 +403,6 @@ Aap hamara work check karne ke liye [View Portfolio](/work) par ja sakte hain, y
     });
   };
 
-  const lastUserTopic = messages.filter((m) => m.sender === 'user').pop()?.text || 'Services Discussion';
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    `Hi FOUROVR Agency! I was talking with Nova about: "${lastUserTopic}". I'd like to get a quote.`
-  )}`;
-
   return (
     <div className="ai-chat-widget-container">
       {/* Floating Trigger Button */}
@@ -328,10 +410,9 @@ Aap hamara work check karne ke liye [View Portfolio](/work) par ja sakte hain, y
         <button className="ai-chat-trigger-btn" onClick={toggleChat} aria-label="Open AI Assistant">
           <div className="trigger-pulse" />
           <div className="trigger-icon-box">
-            <Bot size={26} className="bot-icon" />
-            <Sparkles size={14} className="sparkle-badge" />
+            <img src={logodp} alt="FOUROVR Logo" className="trigger-logo-img" />
           </div>
-          <span className="trigger-label desktop-only">AI Assistant</span>
+          <span className="trigger-label desktop-only">Nova Here ✨</span>
           {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
         </button>
       )}
@@ -343,12 +424,14 @@ Aap hamara work check karne ke liye [View Portfolio](/work) par ja sakte hain, y
           <div className="chat-header">
             <div className="header-info">
               <div className="bot-avatar">
-                <Bot size={20} />
+                <div className="bot-avatar-img-wrap">
+                  <img src={logodp} alt="FOUROVR Logo" className="header-logo-img" />
+                </div>
                 <span className="online-indicator" />
               </div>
               <div>
-                <h4 className="bot-name">Nova — AI Sales Consultant</h4>
-                <span className="bot-status">● GPT-4o-mini | Real AI</span>
+                <h4 className="bot-name">Nova — AI Agency Advisor</h4>
+                <span className="bot-status">● Online | Active AI Strategy</span>
               </div>
             </div>
             <div className="header-actions">
