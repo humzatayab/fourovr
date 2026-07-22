@@ -13,6 +13,8 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import WorkPage from './pages/WorkPage';
+import AIAssistantPage from './pages/AIAssistantPage';
+import AIChatWidget from './components/AIChatWidget';
 
 function App() {
   return (
@@ -30,11 +32,13 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/ai-assistant" element={<AIAssistantPage />} />
         </Routes>
       </main>
       <MarqueeBar />
       <Footer />
       <CookieConsent />
+      <AIChatWidget />
     </Router>
   );
 }

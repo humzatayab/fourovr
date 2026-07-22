@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, TrendingUp, Sparkles } from 'lucide-react';
 import './WorkPage.css';
 
@@ -127,10 +128,10 @@ export default function WorkPage() {
               <h2 className="featured-title">{featured.title}</h2>
               <p className="featured-desc">{featured.desc}</p>
 
-              <a href="#contact" className="btn-primary featured-btn">
+              <Link to="/contact" className="btn-primary featured-btn">
                 <span>View case study</span>
                 <ArrowUpRight size={18} />
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -201,13 +202,13 @@ export default function WorkPage() {
               We take on a limited number of clients per quarter to ensure top-tier execution.
             </p>
             <div className="cta-buttons">
-              <a href="/contact" className="btn-cta-dark">
+              <Link to="/contact" className="btn-cta-dark">
                 <span>Book consultation</span>
                 <ArrowUpRight size={18} />
-              </a>
-              <a href="/pricing" className="btn-cta-outline">
+              </Link>
+              <Link to="/pricing" className="btn-cta-outline">
                 View pricing
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, Star } from 'lucide-react';
 import './Hero.css';
 
@@ -57,13 +58,13 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions animate-fade-in-up delay-300">
-            <a href="/contact" className="btn-hero-lime">
+            <Link to="/contact" className="btn-hero-lime">
               <span>Book consultation</span>
               <ArrowUpRight size={18} />
-            </a>
-            <a href="/services" className="btn-hero-outline">
+            </Link>
+            <Link to="/services" className="btn-hero-outline">
               <span>View services</span>
-            </a>
+            </Link>
           </div>
 
           {/* Bottom Stats & Client Avatars Row */}

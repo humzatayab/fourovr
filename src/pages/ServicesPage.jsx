@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, Check } from 'lucide-react';
 import './ServicesPage.css';
 
@@ -212,10 +213,10 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <a href="#contact" className="btn-primary showcase-btn">
+                    <Link to="/contact" className="btn-primary showcase-btn">
                       <span>Get started</span>
                       <ArrowUpRight size={18} />
-                    </a>
+                    </Link>
                   </div>
 
                   {/* Visual Card Column */}
@@ -272,13 +273,13 @@ export default function ServicesPage() {
                 Book a free, no-pressure discovery call. We'll audit your current setup and share actionable insights.
               </p>
               <div className="cta-buttons">
-                <a href="#contact" className="btn-cta-dark">
+                <Link to="/contact" className="btn-cta-dark">
                   <span>Book consultation</span>
                   <ArrowUpRight size={18} />
-                </a>
-                <a href="/pricing" className="btn-cta-outline">
+                </Link>
+                <Link to="/pricing" className="btn-cta-outline">
                   View pricing
-                </a>
+                </Link>
               </div>
             </div>
           </div>

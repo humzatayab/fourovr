@@ -60,15 +60,15 @@ export default function Footer() {
             <ul className="footer-contact-list">
               <li>
                 <Mail size={16} className="contact-icon" />
-                <a href="mailto:info@fourovr.com">info@fourovr.com</a>
+                <a href="mailto:fourovr@gmail.com">fourovr@gmail.com</a>
               </li>
               <li>
                 <Phone size={16} className="contact-icon" />
-                <a href="tel:+64220890942">+64 22 089 0942</a>
+                <a href="tel:+64220890942">+92 320 4108187</a>
               </li>
               <li>
                 <MapPin size={16} className="contact-icon" />
-                <span>Auckland, New Zealand</span>
+                <span>Lahore, Pakistan</span>
               </li>
             </ul>
           </div>

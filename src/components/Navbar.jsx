@@ -18,6 +18,7 @@ export default function Navbar() {
 
         <div className="navbar-links desktop-only">
           <Link to="/services">Services</Link>
+          <Link to="/ai-assistant" className="text-lime">AI Assistant</Link>
           <Link to="/work">Work</Link>
           <Link to="/about">About</Link>
           <Link to="/pricing">Pricing</Link>

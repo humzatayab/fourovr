@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, Check, Plus, X } from 'lucide-react';
 import './PricingSection.css';
 
@@ -225,13 +226,13 @@ export default function PricingSection() {
               Bigger project or a unique mix of services? We'll build a custom proposal around your exact goals.
             </p>
             <div className="tailored-buttons">
-              <a href="#contact" className="btn-cta-dark">
+              <Link to="/contact" className="btn-cta-dark">
                 <span>Book consultation</span>
                 <ArrowUpRight size={18} />
-              </a>
-              <a href="#services" className="btn-cta-outline">
+              </Link>
+              <Link to="/services" className="btn-cta-outline">
                 View services
-              </a>
+              </Link>
             </div>
           </div>
         </div>

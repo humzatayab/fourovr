@@ -11,16 +11,51 @@ export default function ContactPage() {
     details: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.details) {
-      setSubmitted(true);
+    if (!formData.name || !formData.email || !formData.details) return;
+
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/fourovr@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Inquiry from ${formData.name} - FOUROVR Agency`,
+          _template: 'table',
+          _captcha: 'false',
+          Name: formData.name,
+          Email: formData.email,
+          Phone: formData.phone || 'Not provided',
+          Company: formData.company || 'Not provided',
+          'Project Details': formData.details
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok || data.success === 'true' || data.success === true) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg('Failed to send message. Please try again or email us at fourovr@gmail.com.');
+      }
+    } catch (err) {
+      setErrorMsg('Network error. Please check your connection or email us at fourovr@gmail.com.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -50,8 +85,8 @@ export default function ContactPage() {
               </div>
               <div className="info-content">
                 <div className="info-label">EMAIL</div>
-                <a href="mailto:info@fourovr.com" className="info-value">
-                  info@fourovr.com
+                <a href="mailto:fourovr@gmail.com" className="info-value">
+                  fourovr@gmail.com
                 </a>
               </div>
             </div>
@@ -64,7 +99,7 @@ export default function ContactPage() {
               <div className="info-content">
                 <div className="info-label">PHONE</div>
                 <a href="tel:+64220890942" className="info-value">
-                  +64 22 089 0942
+                  +92 320 4108187
                 </a>
               </div>
             </div>
@@ -76,7 +111,7 @@ export default function ContactPage() {
               </div>
               <div className="info-content">
                 <div className="info-label">LOCATION</div>
-                <div className="info-value">Auckland, New Zealand</div>
+                <div className="info-value">Lahore, Pakistan</div>
               </div>
             </div>
 
@@ -204,9 +239,14 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button type="submit" className="btn-submit">
-                    Send message
+                  <button type="submit" className="btn-submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending message...' : 'Send message'}
                   </button>
+                  {errorMsg && (
+                    <p style={{ color: '#ff4d4d', marginTop: '12px', fontSize: '14px', textAlign: 'center' }}>
+                      {errorMsg}
+                    </p>
+                  )}
 
                   <p className="form-disclaimer">
                     By submitting you agree to our privacy policy. We never share your data.

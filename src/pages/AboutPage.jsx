@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import './AboutPage.css';
 
@@ -196,13 +197,13 @@ export default function AboutPage() {
                 We take on a limited number of partners to ensure your project gets 100% dedicated focus.
               </p>
               <div className="cta-buttons">
-                <a href="#contact" className="btn-cta-dark">
+                <Link to="/contact" className="btn-cta-dark">
                   <span>Book consultation</span>
                   <ArrowUpRight size={18} />
-                </a>
-                <a href="#services" className="btn-cta-outline">
+                </Link>
+                <Link to="/services" className="btn-cta-outline">
                   View services
-                </a>
+                </Link>
               </div>
             </div>
           </div>
