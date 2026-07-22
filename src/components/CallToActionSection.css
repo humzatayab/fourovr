@@ -14,11 +14,17 @@
 
 .cta-watermark {
   position: absolute;
-  right: -4rem;
-  top: -4rem;
-  color: var(--color-ink);
-  opacity: 0.13;
+  right: -1rem;
+  top: -1rem;
   pointer-events: none;
+  z-index: 1;
+}
+
+.cta-flogo-img {
+  width: clamp(250px, 30vw, 420px);
+  height: auto;
+  opacity: 0.12;
+  filter: brightness(0);
 }
 
 .cta-content {
@@ -143,11 +149,29 @@
   font-size: 0.85rem;
 }
 
+.mobile-cta-title {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .desktop-cta-title {
+    display: none;
+  }
+  .mobile-cta-title {
+    display: block;
+  }
+  .cta-heading {
+    font-size: clamp(2.5rem, 8vw, 3.75rem);
+    line-height: 1.08;
+    margin-bottom: 2rem;
+  }
+  .cta-banner {
+    padding: 4rem 0 3.5rem;
+  }
   .cta-bottom-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.75rem;
   }
   .cta-buttons {
     width: 100%;

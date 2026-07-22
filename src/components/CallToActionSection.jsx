@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import './CallToActionSection.css';
 import { Link } from 'react-router-dom';
+import flogoImg from '../assets/Flogo.png';
 
 export default function CallToActionSection() {
   return (
@@ -8,17 +9,7 @@ export default function CallToActionSection() {
       {/* Lime Banner */}
       <div className="cta-banner">
         <div className="cta-watermark">
-          <svg viewBox="0 0 100 100" fill="none" width="400" height="400">
-            <g stroke="currentColor" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M30 31 L44 49" />
-              <path d="M61 28 L44 49" />
-              <path d="M44 49 L32 70" />
-            </g>
-            <rect x="19" y="20" width="22" height="22" rx="7.5" fill="currentColor" />
-            <rect x="46" y="13" width="30" height="30" rx="10" fill="currentColor" />
-            <rect x="33" y="38" width="22" height="22" rx="7.5" fill="currentColor" />
-            <rect x="21" y="59" width="22" height="22" rx="7.5" fill="currentColor" />
-          </svg>
+          <img src={flogoImg} alt="FOUROVR Watermark Logo" className="cta-flogo-img" />
         </div>
 
         <div className="container relative z-10">
@@ -26,8 +17,8 @@ export default function CallToActionSection() {
             <div className="cta-tagline">START THE CONVERSATION</div>
 
             <h2 className="cta-heading">
-              Let's build your<br />
-              digital future.
+              <span className="desktop-cta-title">Let's build your<br />digital future.</span>
+              <span className="mobile-cta-title">Let's build<br />your digital<br />future.</span>
             </h2>
 
             <div className="cta-bottom-row">
@@ -36,7 +27,6 @@ export default function CallToActionSection() {
               </p>
 
               <div className="cta-buttons">
-
                 <Link to="/contact" className="btn-cta-dark">
                   <span>Book consultation</span>
                   <ArrowUpRight size={18} />

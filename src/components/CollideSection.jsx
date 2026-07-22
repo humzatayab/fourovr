@@ -10,13 +10,15 @@ export default function CollideSection() {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const totalScrollableDistance = rect.height - windowHeight;
+      const sectionHeight = rect.height;
 
-      if (totalScrollableDistance <= 0) return;
+      // Viewport-relative scroll progress calculation:
+      // When section enters screen (rect.top = windowHeight) -> progress = 0
+      // When section leaves screen (rect.bottom = 0) -> progress = 1
+      const totalDistance = windowHeight + sectionHeight;
+      const currentPos = windowHeight - rect.top;
 
-      // Calculate progress relative to when section is pinned
-      const currentScroll = -rect.top;
-      let progress = currentScroll / totalScrollableDistance;
+      let progress = currentPos / totalDistance;
       progress = Math.max(0, Math.min(1, progress));
 
       setScrollProgress(progress);
@@ -28,8 +30,8 @@ export default function CollideSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Phase 1: Entry (0.0 -> 0.4) - "Let's" comes from left (-60vw -> 0), "build" from right (+60vw -> 0)
-  // Phase 2: Collision & Crack (0.4 -> 0.65) - They meet in center and crack lines appear
+  // Phase 1: Entry (0.0 -> 0.35) - "Let's" comes from left (-45vw -> 0), "build" from right (+45vw -> 0)
+  // Phase 2: Collision & Crack (0.35 -> 0.65) - They meet in center and crack lines appear
   // Phase 3: Shatter & Explode (0.65 -> 1.0) - Broken pieces split and scatter apart
 
   let leftTranslate = 0;
@@ -37,21 +39,21 @@ export default function CollideSection() {
   let shatterFactor = 0;
   let subtitleOpacity = 0;
 
-  if (scrollProgress < 0.4) {
-    const entryRatio = 1 - scrollProgress / 0.4;
-    leftTranslate = entryRatio * -55; // in vw
-    rightTranslate = entryRatio * 55; // in vw
-  } else if (scrollProgress >= 0.4 && scrollProgress < 0.65) {
+  if (scrollProgress < 0.35) {
+    const entryRatio = 1 - scrollProgress / 0.35;
+    leftTranslate = entryRatio * -45; // in vw
+    rightTranslate = entryRatio * 45; // in vw
+  } else if (scrollProgress >= 0.35 && scrollProgress < 0.65) {
     leftTranslate = 0;
     rightTranslate = 0;
-    const impactRatio = (scrollProgress - 0.4) / 0.25;
+    const impactRatio = (scrollProgress - 0.35) / 0.3;
     shatterFactor = impactRatio * 0.8;
     subtitleOpacity = Math.min(1, impactRatio * 1.5);
   } else {
     leftTranslate = 0;
     rightTranslate = 0;
     const shatterProgress = (scrollProgress - 0.65) / 0.35;
-    shatterFactor = 0.8 + shatterProgress * 2.5;
+    shatterFactor = 0.8 + shatterProgress * 2.2;
     subtitleOpacity = Math.max(0, 1 - shatterProgress * 1.2);
   }
 
@@ -59,7 +61,7 @@ export default function CollideSection() {
     <section ref={sectionRef} className="collide-section">
       <div className="collide-sticky-wrapper">
         <div className="collide-container">
-          
+
           {/* Main Colliding Words Wrapper */}
           <div className="words-wrapper">
 

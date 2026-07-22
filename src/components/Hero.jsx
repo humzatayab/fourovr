@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowUpRight, Star } from 'lucide-react';
 import './Hero.css';
 
@@ -41,23 +42,55 @@ export default function Hero() {
       />
 
       <div className="container relative z-10">
-        <div className="hero-content">
-          <div className="badge animate-fade-in-up">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.div
+            className="badge"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
             <span className="badge-dot" />
             <span className="badge-text">PREMIER DIGITAL AGENCY</span>
-          </div>
+          </motion.div>
 
-          <h1 className="hero-title animate-fade-in-up delay-100">
-            Smarter digital<br />
-            marketing. Better<br />
-            <span className="text-lime">results.</span>
-          </h1>
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <span className="desktop-title-break">
+              Smarter digital<br />
+              marketing. Better<br />
+              <span className="text-lime">results.</span>
+            </span>
+            <span className="mobile-title-break">
+              Smarter Digital<br />
+              Marketing.<br />
+              Better <span className="text-lime">results.</span>
+            </span>
+          </motion.h1>
 
-          <p className="hero-subtitle animate-fade-in-up delay-200">
+          <motion.p
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8 }}
+          >
             FOUROVR is a leading digital marketing agency. We deliver SEO, web development, paid ads, and growth campaigns that rank you higher and convert more customers.
-          </p>
+          </motion.p>
 
-          <div className="hero-actions animate-fade-in-up delay-300">
+          <motion.div
+            className="hero-actions"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.8 }}
+          >
             <Link to="/contact" className="btn-hero-lime">
               <span>Book consultation</span>
               <ArrowUpRight size={18} />
@@ -65,10 +98,15 @@ export default function Hero() {
             <Link to="/services" className="btn-hero-outline">
               <span>View services</span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Bottom Stats & Client Avatars Row */}
-          <div className="hero-bottom-stats animate-fade-in-up delay-300">
+          <motion.div
+            className="hero-bottom-stats"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
             <div className="stat-item">
               <span className="stat-num">10+</span>
               <span className="stat-label">YEARS EXP.</span>
@@ -98,8 +136,8 @@ export default function Hero() {
                 <span className="rating-text">4.9/5 Client Rating</span>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

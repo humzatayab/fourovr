@@ -1,6 +1,6 @@
 .collide-section {
   position: relative;
-  height: 250vh; /* Provides smooth scroll distance for 3 animation phases */
+  height: 140vh;
   background-color: var(--color-ink);
   color: var(--color-paper);
 }
@@ -148,6 +148,9 @@
 }
 
 @media (max-width: 768px) {
+  .collide-section, .collide-pinned-container {
+    display: none !important;
+  }
   .approaching-words,
   .shatter-layer {
     gap: 0.75rem;

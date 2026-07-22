@@ -32,7 +32,7 @@
   align-items: center;
   gap: 5rem;
   white-space: nowrap;
-  animation: marqueeLogos 30s linear infinite;
+  animation: marqueeLogos 18s linear infinite;
   will-change: transform;
 }
 
@@ -76,4 +76,19 @@
 @keyframes marqueeLogos {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
+}
+
+@media (max-width: 768px) {
+  .client-logos-section {
+    padding: 0.5rem 0 1rem !important;
+  }
+  .client-logos-title {
+    display: none !important;
+  }
+  .logo-text-graphic {
+    font-size: 1.15rem !important;
+  }
+  .logos-marquee-track {
+    gap: 2.75rem !important;
+  }
 }

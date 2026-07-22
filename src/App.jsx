@@ -16,6 +16,12 @@ import WorkPage from './pages/WorkPage';
 import AIAssistantPage from './pages/AIAssistantPage';
 import AIChatWidget from './components/AIChatWidget';
 
+// Sub-Service Pages
+import WebDevServicePage from './pages/WebDevServicePage';
+import GraphicDesignServicePage from './pages/GraphicDesignServicePage';
+import MarketingServicePage from './pages/MarketingServicePage';
+import AIAutomationServicePage from './pages/AIAutomationServicePage';
+
 function App() {
   return (
     <Router>
@@ -29,6 +35,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/web-development" element={<WebDevServicePage />} />
+          <Route path="/services/graphic-design" element={<GraphicDesignServicePage />} />
+          <Route path="/services/marketing" element={<MarketingServicePage />} />
+          <Route path="/services/ai-automation" element={<AIAutomationServicePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
