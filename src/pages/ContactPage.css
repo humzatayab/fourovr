@@ -160,6 +160,8 @@ a.info-value:hover {
   font-weight: 700;
   font-size: 0.925rem;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
 }

@@ -1,9 +1,12 @@
+/* =============================================
+   NAVBAR BASE STYLES
+   ============================================= */
 .navbar-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   padding: 1.5rem 1rem 0;
@@ -51,6 +54,9 @@
   letter-spacing: -0.02em;
 }
 
+/* =============================================
+   NAV LINKS
+   ============================================= */
 .navbar-links {
   display: flex;
   align-items: center;
@@ -100,6 +106,438 @@
   display: none;
 }
 
+/* =============================================
+   SERVICES TRIGGER BUTTON
+   ============================================= */
+.services-trigger {
+  position: relative;
+  display: inline-flex;
+}
+
+.services-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.125rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.services-btn:hover,
+.services-btn.active {
+  color: var(--color-lime);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.services-chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.7;
+}
+
+.services-chevron.rotated {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* =============================================
+   MEGA MENU
+   ============================================= */
+.mega-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.mega-menu-wrapper {
+  position: absolute;
+  top: calc(1.5rem + 76px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, calc(100vw - 2rem));
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d0e0d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 40px 80px -20px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  pointer-events: all;
+}
+
+/* Transparent hover bridge bridging the gap between navbar pill and mega menu */
+.mega-menu-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: transparent;
+}
+
+/* Drop Animation */
+@keyframes megaDrop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.animate-mega-drop {
+  animation: megaDrop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =============================================
+   MEGA MENU — LEFT SIDEBAR
+   ============================================= */
+.mega-menu-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 1.25rem 0.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mega-menu-sidebar-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.mega-cat-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: left;
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+.mega-cat-tab:hover {
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mega-cat-tab--active {
+  color: var(--cat-color, #c7ff24) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.mega-cat-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mega-cat-label {
+  flex: 1;
+}
+
+.mega-cat-arrow {
+  opacity: 0.4;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+}
+
+.mega-cat-tab--active .mega-cat-arrow {
+  opacity: 0.8;
+}
+
+.mega-sidebar-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mega-all-services-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mega-all-services-btn:hover {
+  color: var(--color-lime);
+  border-color: rgba(199, 255, 36, 0.3);
+  background: rgba(199, 255, 36, 0.06);
+}
+
+/* =============================================
+   MEGA MENU — RIGHT PANEL
+   ============================================= */
+.mega-menu-panel {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle animated glow */
+.mega-menu-panel::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--cat-color, #c7ff24);
+  opacity: 0.04;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.mega-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.mega-panel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mega-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.mega-panel-desc {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+}
+
+/* Links Grid */
+.mega-panel-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.mega-link-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: linkCardIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms) both;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes linkCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-link-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cat-color, #c7ff24);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.mega-link-card:hover::before {
+  opacity: 0.06;
+}
+
+.mega-link-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mega-link-card:hover .mega-link-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+.mega-link-card:hover .mega-link-label {
+  color: var(--cat-color, #c7ff24);
+}
+
+.mega-link-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mega-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.mega-link-label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+  font-family: var(--font-display);
+}
+
+.mega-link-subdesc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.38);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mega-link-arrow {
+  color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+/* CTA at bottom of panel */
+.mega-panel-cta {
+  margin-top: auto;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mega-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cat-color, #c7ff24);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-display);
+}
+
+.mega-cta-btn:hover {
+  background: var(--cat-color, #c7ff24);
+  color: #0a0b0a;
+  border-color: var(--cat-color, #c7ff24);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================
+   MOBILE — SERVICES CHIPS
+   ============================================= */
+.mobile-services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+}
+
+.mobile-service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--cat-color, #c7ff24);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-display);
+}
+
+.mobile-service-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
 @media (max-width: 1024px) {
   .desktop-only {
     display: none !important;
@@ -107,9 +545,15 @@
   .mobile-only {
     display: flex;
   }
+
+  .mega-menu-backdrop {
+    display: none;
+  }
 }
 
-/* Mobile Side Drawer Component */
+/* =============================================
+   MOBILE SIDE DRAWER
+   ============================================= */
 .mobile-drawer-overlay {
   position: fixed;
   top: 0;
@@ -136,6 +580,7 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 99999;
+  overflow-y: auto;
 }
 
 .mobile-drawer-header {
@@ -237,24 +682,28 @@
   text-align: center;
 }
 
+/* =============================================
+   ANIMATIONS
+   ============================================= */
 .animate-slide-left {
   animation: slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.animate-fade-in {
+  animation: fadeInOverlay 0.2s ease forwards;
+}
+
 @keyframes slideLeft {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadeInHeader {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

@@ -49,16 +49,22 @@
 }
 
 .preloader-logo {
-  width: 2.85rem;
-  height: 2.85rem;
-  background-color: var(--color-lime);
-  color: var(--color-ink);
-  border-radius: 0.7rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.75rem;
-  box-shadow: 0 0 25px rgba(199, 255, 36, 0.45);
+  box-shadow: 0 0 28px rgba(199, 255, 36, 0.5);
+  overflow: hidden;
+  background-color: var(--color-lime);
+}
+
+.preloader-fav-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .preloader-counter {

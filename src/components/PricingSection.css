@@ -147,16 +147,19 @@
 .plan-price-row {
   display: flex;
   align-items: baseline;
+  justify-content: flex-start;
   gap: 0.4rem;
   margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .price-val {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 2.1vw, 2.15rem);
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .pricing-card.popular-card .price-val {
@@ -165,8 +168,10 @@
 
 .price-period {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--color-paper-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .plan-divider {
@@ -526,28 +531,31 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.82);
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: rgba(5, 6, 5, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .invoice-modal-card {
   position: relative;
   background: #0d0f0d;
   border: 1px solid rgba(199, 255, 36, 0.4);
-  border-radius: 32px;
+  border-radius: 28px;
   max-width: 900px;
   width: 100%;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(199, 255, 36, 0.15);
-  overflow: hidden;
+  max-height: 90vh;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(199, 255, 36, 0.15);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -837,19 +845,94 @@
 }
 
 @media (max-width: 768px) {
+  .invoice-modal-overlay {
+    padding: 0.5rem;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .invoice-modal-overlay::-webkit-scrollbar,
+  .invoice-modal-card::-webkit-scrollbar {
+    display: none;
+  }
+  .invoice-modal-card {
+    border-radius: 20px;
+    max-height: 96vh;
+    margin: auto 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
   .modal-checkout-grid {
     grid-template-columns: 1fr;
+    display: block;
   }
   .invoice-summary-col {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem 0.65rem;
+  }
+  .invoice-header-tag {
+    font-size: 0.68rem;
+    margin-bottom: 0.5rem;
+  }
+  .invoice-package-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.15rem;
+  }
+  .invoice-category-name {
+    font-size: 0.78rem;
+  }
+  /* Hide heavy deliverables list & speed info on mobile as requested */
+  .invoice-deliverables-section {
+    display: none !important;
   }
   .invoice-form-col {
-    padding: 2rem 1.5rem;
+    padding: 0.75rem 1rem 1rem;
+  }
+  .grand-total-box {
+    padding: 0.65rem 0.85rem;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+  }
+  .total-label {
+    font-size: 0.65rem;
+    margin-bottom: 0.15rem;
+  }
+  .total-amount {
+    font-size: 1.35rem;
+    margin-bottom: 0.15rem;
+  }
+  .total-note {
+    font-size: 0.7rem;
+  }
+  .invoice-contact-form {
+    gap: 0.65rem;
+  }
+  .modal-input-group {
+    gap: 0.2rem;
+  }
+  .modal-input-label {
+    font-size: 0.65rem;
+  }
+  .modal-input,
+  .modal-textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+    border-radius: 10px;
+  }
+  .btn-confirm-order {
+    padding: 0.65rem 1rem !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
   }
   .modal-success-container {
-    padding: 3rem 1.5rem;
+    padding: 1.75rem 1rem;
+  }
+  .success-title {
+    font-size: 1.3rem;
   }
 }
 

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import BookingModal from '../components/BookingModal';
 import './ContactPage.css';
 
 export default function ContactPage() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -123,15 +125,14 @@ export default function ContactPage() {
               </div>
               <h3 className="booking-title">Prefer to grab a time?</h3>
               <p className="booking-subtitle">⏱ Free 30-minute strategy call</p>
-              <a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={() => setIsBookingOpen(true)}
                 className="btn-booking"
               >
                 <span>Open calendar</span>
                 <ArrowUpRight size={18} />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -257,6 +258,9 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* Custom Booking Calendar Modal */}
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }

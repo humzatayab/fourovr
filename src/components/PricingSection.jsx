@@ -583,27 +583,29 @@ export default function PricingSection() {
                   <h3 className="invoice-package-title">{activeInvoiceModal.title}</h3>
                   <div className="invoice-category-name">{activeInvoiceModal.category}</div>
 
-                  <div className="invoice-divider" />
+                  <div className="invoice-deliverables-section">
+                    <div className="invoice-divider" />
 
-                  <div className="invoice-deliverables-title">INCLUDED DELIVERABLES:</div>
-                  <ul className="invoice-deliverables-list">
-                    {activeInvoiceModal.features.map((item, i) => (
-                      <li key={i}>
-                        <Check size={14} className="text-lime" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <div className="invoice-deliverables-title">INCLUDED DELIVERABLES:</div>
+                    <ul className="invoice-deliverables-list">
+                      {activeInvoiceModal.features.map((item, i) => (
+                        <li key={i}>
+                          <Check size={14} className="text-lime" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <div className="invoice-divider" />
+                    <div className="invoice-divider" />
 
-                  <div className="invoice-meta-row">
-                    <span>Delivery Speed:</span>
-                    <strong className="text-lime">{activeInvoiceModal.speed}</strong>
-                  </div>
-                  <div className="invoice-meta-row">
-                    <span>Currency:</span>
-                    <strong>$ USD</strong>
+                    <div className="invoice-meta-row">
+                      <span>Delivery Speed:</span>
+                      <strong className="text-lime">{activeInvoiceModal.speed}</strong>
+                    </div>
+                    <div className="invoice-meta-row">
+                      <span>Currency:</span>
+                      <strong>$ USD</strong>
+                    </div>
                   </div>
                 </div>
 

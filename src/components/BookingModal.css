@@ -1,0 +1,612 @@
+/* =============================================
+   BOOKING MODAL STYLES
+   ============================================= */
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: rgba(5, 6, 5, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.booking-modal-container {
+  width: 100%;
+  max-width: 580px;
+  background: #0f1011;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow:
+    0 30px 70px -10px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 90vh;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-step-in {
+  animation: stepIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Header */
+.booking-modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.booking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.booking-modal-heading {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-paper);
+  margin: 0;
+}
+
+.booking-modal-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-paper-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.booking-modal-close:hover {
+  background: var(--color-lime);
+  color: #0a0b0a;
+  border-color: var(--color-lime);
+}
+
+/* Steps Progress Bar */
+.booking-steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.step-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.4;
+  transition: opacity 0.25s ease;
+}
+
+.step-pill.active {
+  opacity: 1;
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-pill.active .step-num {
+  background: var(--color-lime);
+  color: #0a0b0a;
+}
+
+.step-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-paper);
+}
+
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 0.75rem;
+}
+
+/* Body Content */
+.booking-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.step-question {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-paper);
+  margin-bottom: 0.3rem;
+}
+
+.step-subtext {
+  font-size: 0.84rem;
+  color: var(--color-paper-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.45;
+}
+
+/* Step 1: Duration Cards */
+.duration-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.duration-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.duration-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.duration-card.selected {
+  background: rgba(199, 255, 36, 0.06);
+  border-color: var(--color-lime);
+  box-shadow: 0 0 20px rgba(199, 255, 36, 0.12);
+}
+
+.duration-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.duration-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.recommended-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-lime);
+}
+
+.duration-time {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-paper);
+}
+
+.duration-desc {
+  font-size: 0.78rem;
+  color: var(--color-paper-muted);
+}
+
+.radio-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.duration-card.selected .radio-check {
+  border-color: var(--color-lime);
+  background: var(--color-lime);
+  box-shadow: inset 0 0 0 3px #0f1011;
+}
+
+/* Step 2: Date & Time Grids */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-paper-muted);
+  margin-bottom: 0.6rem;
+}
+
+.section-label.margin-top {
+  margin-top: 1.25rem;
+}
+
+.dates-scroll-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.date-chip {
+  padding: 0.6rem 0.4rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-paper);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.date-chip:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.date-chip.selected {
+  background: var(--color-lime);
+  color: #0a0b0a;
+  border-color: var(--color-lime);
+  font-weight: 700;
+}
+
+.date-chip-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.time-chip {
+  padding: 0.55rem 0.5rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-paper);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.time-chip:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.time-chip.selected {
+  background: var(--color-lime);
+  color: #0a0b0a;
+  border-color: var(--color-lime);
+  font-weight: 700;
+}
+
+/* Step 3: Form Fields */
+.modal-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-paper-muted);
+  margin-bottom: 0.35rem;
+}
+
+.modal-form-input,
+.modal-form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.modal-form-input:focus,
+.modal-form-textarea:focus {
+  border-color: var(--color-lime);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 12px rgba(199, 255, 36, 0.15);
+}
+
+.modal-error-msg {
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(255, 77, 77, 0.1);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: #ff6b6b;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Action Buttons */
+.modal-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.modal-actions-row.justify-end {
+  justify-content: flex-end;
+}
+
+.modal-actions-row.justify-center {
+  justify-content: center;
+}
+
+.btn-modal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-lime);
+  color: #0a0b0a;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-primary:hover:not(:disabled) {
+  background: var(--color-lime-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(199, 255, 36, 0.3);
+}
+
+.btn-modal-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-modal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--color-paper);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Step 4: Success Screen */
+.success-step {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-icon-wrap {
+  margin-bottom: 1rem;
+}
+
+.success-heading {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-paper);
+  margin-bottom: 0.5rem;
+}
+
+.success-subtext {
+  font-size: 0.9rem;
+  color: var(--color-paper-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+.reminder-alert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: rgba(199, 255, 36, 0.06);
+  border: 1px solid rgba(199, 255, 36, 0.25);
+  text-align: left;
+  font-size: 0.84rem;
+  color: var(--color-paper);
+  line-height: 1.45;
+  max-width: 480px;
+}
+
+/* =============================================
+   RESPONSIVE MODAL
+   ============================================= */
+@media (max-width: 640px) {
+  .booking-modal-overlay {
+    padding: 0.75rem 0.5rem;
+    align-items: flex-start;
+  }
+  .booking-modal-container {
+    border-radius: 20px;
+    max-height: calc(100vh - 1.5rem);
+    margin: 0 auto;
+    width: 100%;
+  }
+  .booking-modal-header {
+    padding: 1rem 1.15rem;
+  }
+  .booking-modal-heading {
+    font-size: 1.1rem;
+  }
+  .booking-steps-bar {
+    padding: 0.6rem 0.85rem;
+  }
+  .step-label {
+    font-size: 0.72rem;
+  }
+  .step-line {
+    margin: 0 0.35rem;
+  }
+  .booking-modal-body {
+    padding: 1rem 1.15rem;
+  }
+  .step-question {
+    font-size: 1.05rem;
+  }
+  .step-subtext {
+    font-size: 0.78rem;
+    margin-bottom: 1rem;
+  }
+  .duration-card {
+    padding: 0.75rem 0.85rem;
+    gap: 0.75rem;
+  }
+  .duration-time {
+    font-size: 0.92rem;
+  }
+  .duration-desc {
+    font-size: 0.75rem;
+  }
+  .dates-scroll-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+  }
+  .date-chip {
+    padding: 0.5rem 0.25rem;
+  }
+  .date-chip-label {
+    font-size: 0.72rem;
+  }
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.35rem;
+  }
+  .time-chip {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.78rem;
+  }
+  .modal-actions-row {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .btn-modal-primary,
+  .btn-modal-secondary {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.82rem;
+    flex: 1;
+    justify-content: center;
+  }
+}

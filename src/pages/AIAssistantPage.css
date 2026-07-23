@@ -1,125 +1,413 @@
+/* =============================================
+   AI ASSISTANT PAGE STYLES
+   ============================================= */
 .ai-page-wrapper {
-  padding: 120px 0 80px;
+  padding: 130px 0 90px;
   min-height: 100vh;
-  background: #09090b;
-  color: #ffffff;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Header */
 .ai-header {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
+  max-width: 820px;
+  margin: 0 auto 50px;
 }
 
 .ai-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 
 .ai-title {
-  font-size: clamp(32px, 5vw, 56px);
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.5vw, 5rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-paper);
+  margin-bottom: 1.25rem;
 }
 
 .ai-subtitle {
-  font-size: 16px;
-  color: #a1a1aa;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--color-paper-muted);
   line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 2rem;
 }
 
-.ai-features-grid {
+.header-action-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Sample Prompts Section */
+.sample-prompts-section {
+  max-width: 920px;
+  margin: 0 auto 70px;
+  padding: 1.75rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.section-meta-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-paper-muted);
+  margin-bottom: 1rem;
+}
+
+.prompts-chips-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 
-.ai-feature-card {
+.prompt-chip-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 30px;
-  transition: transform 0.3s, border-color 0.3s;
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
 }
 
-.ai-feature-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(196, 255, 0, 0.4);
+.prompt-chip-card:hover {
+  background: rgba(199, 255, 36, 0.06);
+  border-color: rgba(199, 255, 36, 0.3);
+  color: var(--color-lime);
+  transform: translateY(-2px);
 }
 
-.ai-feature-card .icon-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: rgba(196, 255, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+.prompt-chip-arrow {
+  color: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.ai-feature-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
+.prompt-chip-card:hover .prompt-chip-arrow {
+  color: var(--color-lime);
+  transform: translate(2px, -2px);
 }
 
-.ai-feature-card p {
-  font-size: 14px;
-  color: #a1a1aa;
-  line-height: 1.6;
-}
-
-.ai-cta-banner {
-  background: linear-gradient(135deg, rgba(196, 255, 0, 0.1), rgba(15, 15, 17, 0.95));
-  border: 1px solid rgba(196, 255, 0, 0.3);
-  border-radius: 24px;
-  padding: 50px 30px;
-  text-align: center;
-}
-
-.banner-content h2 {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 14px;
-}
-
-.banner-content p {
-  color: #a1a1aa;
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-
-.banner-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.btn-whatsapp-large {
+.prompt-toast {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: #25D366;
-  color: #ffffff;
-  font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 15px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-paper-muted);
 }
 
-.btn-whatsapp-large:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+/* Capabilities Grid */
+.ai-capabilities-section {
+  margin-bottom: 80px;
+}
+
+.section-header {
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.section-badge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-paper);
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-paper-muted);
+  line-height: 1.5;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.capability-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.capability-card:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(199, 255, 36, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5);
+}
+
+.cap-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.cap-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(199, 255, 36, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(199, 255, 36, 0.2);
+}
+
+.cap-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-lime);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(199, 255, 36, 0.08);
+  border: 1px solid rgba(199, 255, 36, 0.2);
+}
+
+.cap-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-paper);
+  margin-bottom: 0.6rem;
+}
+
+.cap-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--color-paper-muted);
+  line-height: 1.55;
+}
+
+/* Process Section */
+.ai-process-section {
+  margin-bottom: 80px;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  position: relative;
+}
+
+.process-step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 1.75rem 1.35rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-num-badge {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: var(--color-lime);
+  line-height: 1;
+  margin-bottom: 0.85rem;
+  opacity: 0.9;
+}
+
+.step-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-paper);
+  margin-bottom: 0.5rem;
+}
+
+.step-card-desc {
+  font-size: 0.84rem;
+  color: var(--color-paper-muted);
+  line-height: 1.5;
+}
+
+.step-flow-arrow {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+/* High Converting Banner (Replaced WhatsApp Button) */
+.ai-cta-banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(199, 255, 36, 0.12), rgba(10, 11, 10, 0.95) 70%);
+  border: 1px solid rgba(199, 255, 36, 0.35);
+  border-radius: 28px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.banner-glow-effect {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  opacity: 0.1;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.85rem;
+}
+
+.banner-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-paper);
+  margin-bottom: 0.85rem;
+  line-height: 1.15;
+}
+
+.banner-subtext {
+  font-size: 0.95rem;
+  color: var(--color-paper-muted);
+  line-height: 1.55;
+  margin-bottom: 2rem;
+}
+
+.banner-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-banner-action {
+  padding: 0.85rem 1.75rem !important;
+  font-size: 0.95rem !important;
+}
+
+.banner-direct-note {
+  font-size: 0.82rem;
+  color: var(--color-paper-muted);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* =============================================
+   RESPONSIVE STYLES
+   ============================================= */
+@media (max-width: 1024px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .step-flow-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-page-wrapper {
+    padding: 100px 0 60px;
+  }
+  .header-action-pills {
+    flex-direction: column;
+    width: 100%;
+  }
+  .header-action-pills .btn-hero-lime,
+  .header-action-pills .btn-hero-outline {
+    width: 100%;
+  }
+  .prompts-chips-grid {
+    grid-template-columns: 1fr;
+  }
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .banner-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-banner-action {
+    width: 100%;
+  }
 }
