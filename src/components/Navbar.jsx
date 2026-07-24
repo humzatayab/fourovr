@@ -69,12 +69,18 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [expandedMobileCat, setExpandedMobileCat] = useState(null);
   const megaMenuRef = useRef(null);
   const servicesRef = useRef(null);
   const closeTimeoutRef = useRef(null);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+    setExpandedMobileCat(null);
+  };
 
   const handleServicesEnter = () => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -288,32 +294,118 @@ export default function Navbar() {
               <Link to="/" className="drawer-nav-item" onClick={closeMobileMenu}>
                 Home
               </Link>
-              <Link to="/services" className="drawer-nav-item" onClick={closeMobileMenu}>
-                Services
-              </Link>
+              {/* collapsible services menu option */}
+              <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+                <button 
+                  className={`drawer-nav-item ${isMobileServicesOpen ? 'active' : ''}`}
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  style={{ 
+                    display: 'flex', 
+                    width: '100%', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center', 
+                    background: 'none', 
+                    border: 'none', 
+                    textAlign: 'left', 
+                    cursor: 'pointer',
+                    padding: '12px 16px',
+                    color: '#fff',
+                    fontSize: '1.1rem',
+                    fontWeight: '500'
+                  }}
+                >
+                  <span>Services</span>
+                  <ChevronDown 
+                    size={18} 
+                    style={{ 
+                      transform: isMobileServicesOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
+                      transition: 'transform 0.3s ease',
+                      color: '#c7ff24'
+                    }} 
+                  />
+                </button>
 
-              {/* Mobile Services Submenu */}
-              <div className="mobile-services-grid">
-                {megaMenuData.map((cat) => {
-                  const Icon = cat.icon;
-                  return (
-                    <Link
-                      key={cat.category}
-                      to="/services"
-                      className="mobile-service-chip"
-                      style={{ '--cat-color': cat.color }}
-                      onClick={closeMobileMenu}
-                    >
-                      <Icon size={13} style={{ color: cat.color }} />
-                      <span>{cat.category}</span>
-                    </Link>
-                  );
-                })}
+                {/* Categories Dropdown Level 1 */}
+                {isMobileServicesOpen && (
+                  <div className="mobile-services-accordion-wrapper" style={{ paddingLeft: '16px', display: 'flex', flexDirection: 'column', gap: '8px', borderLeft: '1px solid rgba(255, 255, 255, 0.05)', marginLeft: '16px', marginBottom: '8px' }}>
+                    {megaMenuData.map((cat, catIdx) => {
+                      const CatIcon = cat.icon;
+                      const isExpanded = expandedMobileCat === catIdx;
+                      return (
+                        <div key={cat.category} style={{ display: 'flex', flexDirection: 'column' }}>
+                          <button
+                            onClick={() => setExpandedMobileCat(isExpanded ? null : catIdx)}
+                            style={{
+                              display: 'flex',
+                              width: '100%',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              background: isExpanded ? 'rgba(255,255,255,0.03)' : 'none',
+                              border: 'none',
+                              color: isExpanded ? cat.color : '#ccc',
+                              padding: '8px 12px',
+                              borderRadius: '6px',
+                              textAlign: 'left',
+                              cursor: 'pointer',
+                              fontSize: '0.95rem',
+                              fontWeight: '500',
+                              transition: 'all 0.2s'
+                            }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                              <span style={{ display: 'flex', background: `${cat.color}15`, padding: '4px', borderRadius: '4px' }}>
+                                <CatIcon size={14} style={{ color: cat.color }} />
+                              </span>
+                              <span>{cat.category}</span>
+                            </div>
+                            <ChevronDown 
+                              size={14} 
+                              style={{ 
+                                transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', 
+                                transition: 'transform 0.2s ease',
+                                color: isExpanded ? cat.color : '#888'
+                              }} 
+                            />
+                          </button>
+
+                          {/* Specific Category Sub-Links Level 2 */}
+                          {isExpanded && (
+                            <div className="mobile-services-links-wrapper" style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px', borderLeft: `1px solid ${cat.color}25`, marginLeft: '20px', paddingBottom: '6px' }}>
+                              {cat.links.map((link) => {
+                                const LinkIcon = link.icon;
+                                return (
+                                  <Link
+                                    key={link.label}
+                                    to={link.to}
+                                    className="mobile-sublink-item"
+                                    onClick={closeMobileMenu}
+                                    style={{
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '8px',
+                                      color: '#aaa',
+                                      padding: '6px 0',
+                                      fontSize: '0.85rem',
+                                      textDecoration: 'none',
+                                      transition: 'color 0.2s'
+                                    }}
+                                  >
+                                    <LinkIcon size={12} style={{ color: cat.color, opacity: 0.8 }} />
+                                    <span>{link.label}</span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
-              <Link to="/ai-assistant" className="drawer-nav-item highlight-ai" onClick={closeMobileMenu}>
-                <span>AI Assistant (Nova)</span>
-                <Sparkles size={16} className="text-lime" />
+              <Link to="/ai-assistant" className="drawer-nav-item" onClick={closeMobileMenu}>
+                AI Assistant (Nova)
               </Link>
               <Link to="/work" className="drawer-nav-item" onClick={closeMobileMenu}>
                 Work / Portfolio
