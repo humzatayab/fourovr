@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { Video, Layers, Sparkles, ArrowUpRight, Film, Sliders, Volume2, MonitorPlay, Clock, Zap } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function VideoMotionServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,18 +12,18 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 03</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Video & <br />
+              <span className="outline-text">Motion Graphics</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We create high-impact video edits, 2D/3D motion graphics, and engaging visual campaigns engineered to capture attention in the first three seconds.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">
-                <span>Start your app</span>
+                <span>Start video project</span>
                 <ArrowUpRight size={18} />
               </Link>
               <Link 
@@ -57,28 +57,28 @@ export default function WebDevServicePage() {
                 <span className="stat-label">AVERAGE TIMELINE</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">1 - 3 Weeks</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">TECH STACK</span>
-                <Layers className="stat-icon" size={18} />
+                <span className="stat-label">DELIVERED RESOLUTION</span>
+                <MonitorPlay className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">4K & Full HD (1080p)</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
-                <Cpu className="stat-icon" size={18} />
+                <span className="stat-label">HOOK OPTIMIZATION</span>
+                <Zap className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
+              <div className="stat-val">First 3 Seconds Focus</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
+                <span className="stat-label">SOUND SYSTEM</span>
+                <Volume2 className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">SFX, Licensing, Voiceover</div>
             </div>
           </div>
         </div>
@@ -95,11 +95,21 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
+                <MonitorPlay size={24} />
               </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
+              <h3 className="deliverable-title">Explainer & Promos</h3>
               <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
+                High-end promotional edits, software walkthroughs, brand stories, and product reveal videos designed to convert leads into customers.
+              </p>
+            </div>
+
+            <div className="deliverable-card">
+              <div className="deliverable-icon-wrap">
+                <Film size={24} />
+              </div>
+              <h3 className="deliverable-title">High-Converting Ad Creatives</h3>
+              <p className="deliverable-desc">
+                Short-form vertical video creatives (9:16) optimized for Meta, TikTok, and YouTube Shorts with custom captions, hook highlights, and sound design.
               </p>
             </div>
 
@@ -107,19 +117,9 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Layers size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">Motion Design & Assets</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
-              </p>
-            </div>
-
-            <div className="deliverable-card">
-              <div className="deliverable-icon-wrap">
-                <Terminal size={24} />
-              </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
-              <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                Kinetic typography, custom 2D & 3D vector animations, animated logos, title cards, and lower third overlays matching your brand guidelines.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Concept & Scriptwriting</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We write high-impact scripts focusing on key audience hooks, clear benefit statements, and interactive call-to-actions.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">Storyboarding & Asset Prep</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We draft outline frames, design graphics, prepare vector files, and select licensed background audio or professional voiceovers.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Animation & Editing</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We edit raw clips, apply kinetic typography, render vector animations, and integrate micro-transitions to keep watch rates high.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Sound Design & Mix</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We apply custom sound effects, balance voice and music volumes, run final color grading, and export final files in multiple dimensions.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Attention is currency.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                In a world of infinite scrolls, average edits get ignored. We create content that keeps audiences engaged till the last frame.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Hook-Centered Editing</h4>
+                  <p>We structure visual loops, key questions, and bold graphics in the opening 3 seconds of vertical videos to stop user swipes immediately.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>Premium Sound Design</h4>
+                  <p>We layer background beats, transition swooshes, impact pops, and click sounds, making videos feel tactile and immersive even on mobile.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Cohesive Brand Theme</h4>
+                  <p>Animations, typography sizing, text colors, and lower thirds align with your visual style, reinforcing brand recognition on all channels.</p>
                 </div>
               </div>
             </div>

@@ -1,12 +1,12 @@
 import './ClientLogos.css';
 
 const clientLogos = [
-  { name: 'sympl.cm', iconType: 'sympl' },
-  { name: 'iremos', iconType: 'iremos' },
-  { name: 'AdvanceCM', iconType: 'advance' },
-  { name: 'S We\'Share', iconType: 'weshare' },
-  { name: 'Point8 Wealth', iconType: 'point8' },
-  { name: 'Kiwiana', iconType: 'kiwiana' },
+  { name: 'FOUROVR', iconType: 'sympl' },
+  { name: 'Goeek', iconType: 'iremos' },
+  { name: 'Nexorx', iconType: 'advance' },
+  { name: 'TAAR', iconType: 'weshare' },
+  { name: 'Retrofit', iconType: 'point8' },
+  { name: 'NextGen', iconType: 'kiwiana' },
   { name: 'HealthCure', iconType: 'healthcure' },
   { name: 'InstaSure', iconType: 'instasure' }
 ];

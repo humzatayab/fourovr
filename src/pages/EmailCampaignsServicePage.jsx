@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { Mail, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal, Target } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function EmailCampaignsServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,18 +12,18 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 15</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Email & SMS <br />
+              <span className="outline-text">Marketing</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We design and construct high-converting automated email flows, SMS marketing campaigns, and transactional broadcasts in Klaviyo and Mailchimp to drive repeat sales.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">
-                <span>Start your app</span>
+                <span>Start email campaigns</span>
                 <ArrowUpRight size={18} />
               </Link>
               <Link 
@@ -54,31 +54,31 @@ export default function WebDevServicePage() {
           <div className="service-stats-grid">
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">AVERAGE TIMELINE</span>
+                <span className="stat-label">CAMPAIGN TYPE</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">Ongoing Management</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">TECH STACK</span>
+                <span className="stat-label">PLATFORMS</span>
                 <Layers className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">Klaviyo / Mailchimp / SMS</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
+                <span className="stat-label">REVENUE LIFT</span>
+                <Target className="stat-icon" size={18} />
+              </div>
+              <div className="stat-val">20% - 30% Sales Lift</div>
+            </div>
+            <div className="service-stat-card">
+              <div className="stat-header">
+                <span className="stat-label">AUTOMATION SCOPE</span>
                 <Cpu className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
-            </div>
-            <div className="service-stat-card">
-              <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
-              </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">Abandoned Cart & Flows</div>
             </div>
           </div>
         </div>
@@ -95,11 +95,11 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
+                <Mail size={24} />
               </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
+              <h3 className="deliverable-title">Automated Lifecycle Flows</h3>
               <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
+                Setup of high-yielding automated flow sets, including welcome series, abandoned shopping carts, customer winbacks, and request reviews.
               </p>
             </div>
 
@@ -107,19 +107,19 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Layers size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">Campaign Broadcasts</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
+                Engaging newsletter layouts, copy editing, product spotlight banners, discount alerts, and holiday campaign mailings.
               </p>
             </div>
 
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Terminal size={24} />
+                <Cpu size={24} />
               </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
+              <h3 className="deliverable-title">List Building & Forms</h3>
               <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                High-converting lead acquisition widgets, visual discount pop-up modules, exit-intent triggers, and customer classification rules.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Audit & Segment Strategy</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We audit your historical subscriber data, establish target segments based on user activities, and map out flow automation plans.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">Visual Template Design</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We design responsive, visually stunning email templates in Figma matching your brand books and typography rules.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Flow Configuration & Copy</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We write persuasive copy, construct templates in Klaviyo, set wait triggers, and configure splits for cart values.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Optimization & A/B testing</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We audit inbox placement values, run ongoing A/B subject line tests, check mobile formatting layouts, and check conversion metrics.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Sales on autopilot.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                We believe in automated retention. By targeting subscribers based on actual search and purchase activities, we turn list members into buyers.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Targeted Segmentation</h4>
+                  <p>We segment subscribers based on purchase history, email opens, and browsing paths, preventing user fatigue and unsubscribes.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>Guaranteed Deliverability</h4>
+                  <p>We optimize SPF, DKIM, and DMARC credentials, ensuring emails bypass junk filters and reach target inboxes.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Predictable Retention Sales</h4>
+                  <p>Automated welcome and cart flows generate consistent sales daily, establishing a highly predictable retention channel.</p>
                 </div>
               </div>
             </div>

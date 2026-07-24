@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { BarChart3, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal, Zap } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function DataPipelinesServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,18 +12,18 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 11</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Data Pipelines & <br />
+              <span className="outline-text">Analytics</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We construct secure, automated data ingestion pipelines, ETL processes, and real-time dashboard analytics systems to clean and sync your business metrics.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">
-                <span>Start your app</span>
+                <span>Start data project</span>
                 <ArrowUpRight size={18} />
               </Link>
               <Link 
@@ -57,28 +57,28 @@ export default function WebDevServicePage() {
                 <span className="stat-label">AVERAGE TIMELINE</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">3 - 6 Weeks</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">TECH STACK</span>
+                <span className="stat-label">STACK ENGINE</span>
                 <Layers className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">Python / SQL / Airflow</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
-                <Cpu className="stat-icon" size={18} />
+                <span className="stat-label">LOAD LATENCY</span>
+                <Zap className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
+              <div className="stat-val">Real-time / Batch Sync</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
+                <span className="stat-label">SECURITY DATA</span>
+                <ShieldCheck className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">ISO Encrypted Warehouses</div>
             </div>
           </div>
         </div>
@@ -95,21 +95,11 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
-              </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
-              <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
-              </p>
-            </div>
-
-            <div className="deliverable-card">
-              <div className="deliverable-icon-wrap">
                 <Layers size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">ETL Ingestion Pipelines</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
+                Automated extraction scripts written in Python, querying external APIs, scraping web databases, and syncing records safely.
               </p>
             </div>
 
@@ -117,9 +107,19 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Terminal size={24} />
               </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
+              <h3 className="deliverable-title">Encrypted Data Warehouses</h3>
               <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                Setup of structured Google BigQuery, Snowflake, or PostgreSQL warehouses with optimized schemas to process millions of transactions.
+              </p>
+            </div>
+
+            <div className="deliverable-card">
+              <div className="deliverable-icon-wrap">
+                <BarChart3 size={24} />
+              </div>
+              <h3 className="deliverable-title">BI Analytics Dashboards</h3>
+              <p className="deliverable-desc">
+                Highly visual business intelligence dashboards in Looker Studio or custom React applications showing real-time revenue and user metrics.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Audit & Schema Strategy</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We audit your scattered business metrics, mapping out database tables and designing clean schemas for analytics dashboards.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">Pipeline Connection Code</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We write scripts to query APIs, configuring data warehouse credential keys and scheduling cron sequences.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Transformation & Formatting</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We configure cleaning rules (using SQL/dbt), removing duplicate rows, organizing currency symbols, and creating structured statistics tables.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Dashboard Sync & Launch</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We connect data warehouses to frontends, writing query test scripts, auditing responsiveness, and deploying live panels.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Data you can trust.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                We believe business decisions must be backed by accurate data metrics. We eliminate synchronization gaps and slow queries to give you immediate insights.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Optimized Query Speed</h4>
+                  <p>We build optimized indexes and partition parameters, reducing database query times from minutes to milliseconds.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>ISO Standard Security</h4>
+                  <p>All database tables utilize AES security, strict role-based access tokens, and automated hourly data backups.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Unified Analytics Hub</h4>
+                  <p>We combine Shopify sales, Meta Ads costs, and CRM logs into a single centralized dashboard, revealing clear ROI metrics.</p>
                 </div>
               </div>
             </div>

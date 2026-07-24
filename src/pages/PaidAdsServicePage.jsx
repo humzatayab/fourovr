@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { Target, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal, Megaphone } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function PaidAdsServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,18 +12,18 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 16</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Paid Ads & <br />
+              <span className="outline-text">PPC Campaigns</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We design and manage high-ROI paid acquisition campaigns on Meta Ads, Google Search/Shopping, and LinkedIn to generate predictable revenue growth.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">
-                <span>Start your app</span>
+                <span>Start ad campaigns</span>
                 <ArrowUpRight size={18} />
               </Link>
               <Link 
@@ -54,31 +54,31 @@ export default function WebDevServicePage() {
           <div className="service-stats-grid">
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">AVERAGE TIMELINE</span>
+                <span className="stat-label">SERVICE MODEL</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">Monthly Retainer</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">TECH STACK</span>
+                <span className="stat-label">PLATFORMS</span>
                 <Layers className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">Meta / Google / LinkedIn</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
+                <span className="stat-label">GOAL FOCUS</span>
+                <Target className="stat-icon" size={18} />
+              </div>
+              <div className="stat-val">4X+ Average ROAS</div>
+            </div>
+            <div className="service-stat-card">
+              <div className="stat-header">
+                <span className="stat-label">TRACKING ACCURACY</span>
                 <Cpu className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
-            </div>
-            <div className="service-stat-card">
-              <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
-              </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">Server-Side Pixel & CAPI</div>
             </div>
           </div>
         </div>
@@ -95,11 +95,11 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
+                <Megaphone size={24} />
               </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
+              <h3 className="deliverable-title">Campaign Management</h3>
               <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
+                Setup and optimization of Meta/Google ad structures, bid strategy modifications, scaling models, and demographic targets.
               </p>
             </div>
 
@@ -107,19 +107,19 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Layers size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">Ad Visuals & Copywriting</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
+                Scroll-stopping visual ad variation layouts, copy editing, high-converting product headlines, and promo content design.
               </p>
             </div>
 
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Terminal size={24} />
+                <Cpu size={24} />
               </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
+              <h3 className="deliverable-title">Server-Side Tracking</h3>
               <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                Conversions API (CAPI) configurations and server-side tracking, ensuring perfect attribution data by overcoming iOS browser privacy blockers.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Audit & Conversion Spec</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We audit your historical ad performance, configure custom target metrics, prepare competitor search targets, and set conversion budgets.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">Creative & Copy Setup</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We design multiple image ad variations, write persuasive copywriting options, and outline video hooks for vertical ad models.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Server Tracking Setup</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We hook Google Tag Manager containers, configure cloud Conversions API parameters, and run purchase event checks to verify data.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Scaling & Retargeting</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We launch ads, audit daily performance values, configure retargeting lists, optimize bid caps, and scale profitable campaign layers.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Data-driven ROAS.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                We don't rely on random guesses. We build campaigns grounded in strict conversion tracking statistics, optimizing budgets for actual purchase records.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Full-Funnel Targeting</h4>
+                  <p>We structure campaigns to guide prospects from initial brand discovery to mid-funnel consideration and checkout triggers.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>Pixel Perfect Data</h4>
+                  <p>We integrate server-side tracking, capturing accurate attribution data to optimize algorithm targets and reduce cost-per-purchase.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Rapid Ad Testing</h4>
+                  <p>We test multiple visual design frames, copy headings, and video hooks weekly, scaling profitable ads and pausing cold ones.</p>
                 </div>
               </div>
             </div>

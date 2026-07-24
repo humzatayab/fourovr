@@ -18,10 +18,10 @@ const megaMenuData = [
     gradient: 'linear-gradient(135deg, rgba(255,107,157,0.15), rgba(255,107,157,0.03))',
     description: 'Bold visuals that leave a mark',
     links: [
-      { label: 'Brand Identity', icon: PenTool, to: '/services/graphic-design', desc: 'Logos, colors & brand systems' },
-      { label: 'UI/UX Design', icon: Layout, to: '/services/graphic-design', desc: 'Interfaces people love to use' },
-      { label: 'Motion & 3D', icon: Layers, to: '/services/graphic-design', desc: 'Animation & 3D experiences' },
-      { label: 'Photography', icon: Camera, to: '/services/graphic-design', desc: 'Visual storytelling through lens' },
+      { label: 'Branding', icon: PenTool, to: '/services/branding', desc: 'Logos, colors & brand systems' },
+      { label: 'UI/UX Design', icon: Layout, to: '/services/ui-ux', desc: 'Interfaces people love to use' },
+      { label: 'Video & Motion', icon: Layers, to: '/services/video-motion', desc: 'Animation, Reels & motion edits' },
+      { label: 'Social Creatives', icon: Sparkles, to: '/services/social-media-creatives', desc: 'High-converting social content' },
     ],
   },
   {
@@ -32,9 +32,9 @@ const megaMenuData = [
     description: 'Engineered for performance',
     links: [
       { label: 'Web Development', icon: Globe, to: '/services/web-development', desc: 'Fast, scalable web apps' },
-      { label: 'Mobile Apps', icon: Smartphone, to: '/services/web-development', desc: 'iOS & Android development' },
-      { label: 'E-Commerce', icon: ShoppingCart, to: '/services/web-development', desc: 'Stores that convert' },
-      { label: 'Desktop Apps', icon: Monitor, to: '/services/web-development', desc: 'Cross-platform software' },
+      { label: 'Mobile Apps', icon: Smartphone, to: '/services/mobile-apps', desc: 'iOS & Android development' },
+      { label: 'E-Commerce', icon: ShoppingCart, to: '/services/ecommerce', desc: 'Stores that convert' },
+      { label: 'Desktop Apps', icon: Monitor, to: '/services/desktop-apps', desc: 'Cross-platform software' },
     ],
   },
   {
@@ -44,10 +44,10 @@ const megaMenuData = [
     gradient: 'linear-gradient(135deg, rgba(167,139,250,0.15), rgba(167,139,250,0.03))',
     description: 'Scale smarter with AI',
     links: [
-      { label: 'AI Agents', icon: Bot, to: '/services/ai-automation', desc: 'Custom AI assistants' },
-      { label: 'Workflow Automation', icon: Workflow, to: '/services/ai-automation', desc: 'Eliminate repetitive tasks' },
-      { label: 'Data Pipelines', icon: BarChart3, to: '/services/ai-automation', desc: 'Smart data processing' },
-      { label: 'AI Integration', icon: Zap, to: '/services/ai-automation', desc: 'Embed AI into your stack' },
+      { label: 'AI Agents', icon: Bot, to: '/services/ai-agents', desc: 'Custom AI assistants' },
+      { label: 'Workflow Automation', icon: Workflow, to: '/services/workflow-automation', desc: 'Eliminate repetitive tasks' },
+      { label: 'Data Pipelines', icon: BarChart3, to: '/services/data-pipelines', desc: 'Smart data processing' },
+      { label: 'AI Integration', icon: Zap, to: '/services/ai-integration', desc: 'Embed AI into your stack' },
     ],
   },
   {
@@ -57,10 +57,10 @@ const megaMenuData = [
     gradient: 'linear-gradient(135deg, rgba(56,189,248,0.15), rgba(56,189,248,0.03))',
     description: 'Grow your audience fast',
     links: [
-      { label: 'Social Media', icon: Megaphone, to: '/services/marketing', desc: 'Content that goes viral' },
-      { label: 'SEO & Growth', icon: BarChart3, to: '/services/marketing', desc: 'Rank higher, grow faster' },
-      { label: 'Email Campaigns', icon: Mail, to: '/services/marketing', desc: 'Nurture & convert leads' },
-      { label: 'Paid Ads', icon: Globe, to: '/services/marketing', desc: 'High-ROI ad campaigns' },
+      { label: 'Social Media', icon: Megaphone, to: '/services/social-media-marketing', desc: 'Organic growth & feeds' },
+      { label: 'SEO & Growth', icon: BarChart3, to: '/services/seo-growth', desc: 'Rank higher, grow faster' },
+      { label: 'Email Campaigns', icon: Mail, to: '/services/email-campaigns', desc: 'Nurture & convert leads' },
+      { label: 'Paid Ads', icon: Globe, to: '/services/paid-ads', desc: 'High-ROI ad campaigns' },
     ],
   },
 ];

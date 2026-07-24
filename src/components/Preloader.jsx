@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import logoIcon from '../../public/loading.png';
 import './Preloader.css';
+import logoLoading from '../assets/loading.png';
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
@@ -47,7 +47,7 @@ export default function Preloader() {
 
       <div className="preloader-content">
         <div className="preloader-logo">
-          <img src={logoIcon} alt="FOUROVR Favicon" className="preloader-fav-img" />
+          <img src={logoLoading} alt="FOUROVR Favicon" className="preloader-fav-img" />
         </div>
         <div className="preloader-counter">{progress}</div>
         <div className="preloader-label">L O A D I N G</div>

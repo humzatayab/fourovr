@@ -62,29 +62,29 @@ export default function AIChatWidget() {
 
     const welcomeMsg = lang === 'en'
       ? {
-          id: 1,
-          sender: 'bot',
-          text: `Hello **${userName}**! 👋 Welcome to FOUROVR Agency. I'm **Nova**, your AI Strategy Advisor.\n\nAwesome to meet you! What industry or niche is your business/company in, and what specific products or services do you sell?`,
-          options: [
-            '🎨 Social Media Graphics & Branding',
-            '🌐 Custom Website / Web App',
-            '🤖 AI Chatbots & Automations',
-            '📈 SEO & Digital Marketing'
-          ],
-          timestamp: 'Just now'
-        }
+        id: 1,
+        sender: 'bot',
+        text: `Hello **${userName}**! 👋 Welcome to FOUROVR Agency. I'm **Nova**, your AI Strategy Advisor.\n\nAwesome to meet you! What industry or niche is your business/company in, and what specific products or services do you sell?`,
+        options: [
+          '🎨 Social Media Graphics & Branding',
+          '🌐 Custom Website / Web App',
+          '🤖 AI Chatbots & Automations',
+          '📈 SEO & Digital Marketing'
+        ],
+        timestamp: 'Just now'
+      }
       : {
-          id: 1,
-          sender: 'bot',
-          text: `Salam **${userName}**! 👋 FOUROVR Agency me khushamdeed. Main **Nova** hoon, aapki AI Strategy Advisor.\n\nZabardast! Aapki company/brand kis niche me hai aur aap exactly kya products/services sell karte hain?`,
-          options: [
-            '🎨 Social Media Graphics & Branding',
-            '🌐 Custom Website / Web App',
-            '🤖 AI Chatbots & Automations',
-            '📈 SEO & Digital Marketing'
-          ],
-          timestamp: 'Just now'
-        };
+        id: 1,
+        sender: 'bot',
+        text: `Salam **${userName}**! 👋 FOUROVR Agency me khushamdeed. Main **Nova** hoon, aapki AI Strategy Advisor.\n\nZabardast! Aapki company/brand kis niche me hai aur aap exactly kya products/services sell karte hain?`,
+        options: [
+          '🎨 Social Media Graphics & Branding',
+          '🌐 Custom Website / Web App',
+          '🤖 AI Chatbots & Automations',
+          '📈 SEO & Digital Marketing'
+        ],
+        timestamp: 'Just now'
+      };
 
     setMessages([welcomeMsg]);
     setFormDetails((prev) => ({ ...prev, name: userName }));
@@ -157,19 +157,20 @@ CRITICAL OPERATING DIRECTIVES FOR NOVA:
        - Roman Urdu: "Zabardast! Aapki company/brand kis niche me hai aur aap exactly kya products/services sell karte hain?"
    - DO NOT mention pricing, packages, quotes, forms, or links on this initial discovery turn unless the client explicitly asked for pricing!
    - Understand their business/product first so you can give smart, tailored advice.
+   - If the client gives an incomplete, vague, or single-word query (e.g., just saying "real estate", "clothing", or "brand"), do NOT talk about FOUROVR at length or pitch features. Simply ask them to clarify what their brand name/product is, what they sell, and directly guide them to fill out the form.
 
 4. PRICING & BUDGET SEQUENCING (ONLY WHEN CLIENT EXPLICITLY ASKS FOR RATES/PRICING):
-   - NEVER quote hourly rates ($5/hr or $10/hr is STRICTLY PROHIBITED).
-   - NEVER promise an exact completion timeframe ("done in 3 days" is PROHIBITED), because exact timelines are set by the Account Manager after reviewing project specs.
+   - NEVER BRING UP PRICING, PACKAGES, RATES, OR INVOICES ON YOUR OWN.
+   - DO NOT ask the client if they want to know about pricing or packages.
+   - DO NOT suggest checking out pricing unless they explicitly ask for it.
+   - Only talk about pricing if the client explicitly uses words like "price", "rates", "fees", "charges", "packages", "cost", "how much", or "pricing". Otherwise, pricing is STRICTLY FORBIDDEN to be mentioned by you.
+   - NEVER quote any numerical prices, hourly rates, packages costs, estimated ranges, or percentage fees under any circumstances. Numerical price values (like "$200", "$500", "17%") are STRICTLY FORBIDDEN.
    - When asked about rates/pricing:
-     a) For General Services (Graphics, Web Dev, Posts, Branding): Direct them to fill out the quick form below for an official customized invoice emailed based on their scope, or check transparent packages at **[View Packages & Pricing](/pricing)**.
-     b) For Paid Marketing & Meta/Google Ads: FOUROVR charges a percentage of total ad budget:
-        * Standard Ad Budget: **17% management fee** of total ad spend.
-        * Budget around $10,000 / 1M PKR: **15% management fee**.
-        * Budget around $50,000 / 5M PKR: **12% management fee**.
-        * Enterprise Budget $100,000+ / 1 Crore PKR+: **8% management fee**.
-        * Minimum fee floor: Never below **5%**.
-     c) If they insist on knowing estimated ranges, quote a flexible budget range in **$ (USD)** (e.g. *$200 - $500 USD*). Never give a single fixed amount.
+     * Tell the client to fill out the contact form below so our team can email them a custom invoice based on their exact project scope.
+     * Optionally redirect them to check transparent base packages at **[View Packages & Pricing](/pricing)**.
+     * Standard response guidelines:
+       - English: "Please fill out the form below with your project requirements, and our team will email you a custom invoice. You can also view our packages at **[View Packages & Pricing](/pricing)**."
+       - Roman Urdu: "Aap niche diya gaya form fill kar dein, hamari team aapko email par custom invoice bhej degi. Aap base packages **[View Packages & Pricing](/pricing)** par bhi check kar sakte hain."
 
 5. MEMORY & CONTEXT RETENTION (HIGHEST CONVERSATIONAL PRIORITY):
    - Review CHAT HISTORY before answering. If the client has ALREADY mentioned their brand name/niche (e.g. jewelry, clothing, real estate), NEVER ask for their brand/niche again! Reuse their details directly.
@@ -180,9 +181,9 @@ CRITICAL OPERATING DIRECTIVES FOR NOVA:
        - English: "Because at FOUROVR, we build high-ROAS motion reels, high-converting graphics, ultra-fast web platforms, and growth funnels engineered to maximize your return on ad spend."
        - Roman Urdu: "Kyunke FOUROVR me hum high-converting graphics, motion reels, ultra-fast web platforms aur full growth funnel build karte hain jo direct sales aur ROI deliver karta hai!"
 
-7. SHORT & NATURAL MESSAGES (2-3 SENTENCES MAX):
-   - Keep responses short, natural, and human-like (2-3 short sentences max).
-   - Always quote rates ONLY in **$ (USD)** (never PKR/Rs.).
+7. SHORT & NATURAL MESSAGES (CONCISE ENFORCEMENT):
+   - Keep responses highly concise and direct (2-3 short sentences max). Do NOT elongate your answers or add unnecessary greetings.
+   - Do NOT ask the client unsolicited questions about pricing or prompt them to ask about pricing. Only answer exactly what they ask. Do not scale up the conversation unnecessarily.
 `;
 
     try {

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { Smartphone, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal, Globe } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function MobileAppsServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,13 +12,13 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 06</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Mobile App <br />
+              <span className="outline-text">Development</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We design and engineer high-performance iOS and Android mobile applications using cross-platform architectures tailored to scale your brand.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -57,28 +57,28 @@ export default function WebDevServicePage() {
                 <span className="stat-label">AVERAGE TIMELINE</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">6 - 10 Weeks</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
                 <span className="stat-label">TECH STACK</span>
                 <Layers className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">React Native / Flutter</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
+                <span className="stat-label">PLATFORMS</span>
+                <Smartphone className="stat-icon" size={18} />
+              </div>
+              <div className="stat-val">iOS & Android App</div>
+            </div>
+            <div className="service-stat-card">
+              <div className="stat-header">
+                <span className="stat-label">ARCHITECTURE</span>
                 <Cpu className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
-            </div>
-            <div className="service-stat-card">
-              <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
-              </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">Native Performance</div>
             </div>
           </div>
         </div>
@@ -95,11 +95,11 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
+                <Smartphone size={24} />
               </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
+              <h3 className="deliverable-title">Cross-Platform Coding</h3>
               <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
+                High-performance applications built using React Native or Flutter, offering single-codebase speed with completely native interface response times.
               </p>
             </div>
 
@@ -107,9 +107,9 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Layers size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">Offline & Local Sync</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
+                Offline database architecture utilizing SQLite or WatermelonDB, syncing with backend databases seamlessly when internet connectivity resumes.
               </p>
             </div>
 
@@ -117,9 +117,9 @@ export default function WebDevServicePage() {
               <div className="deliverable-icon-wrap">
                 <Terminal size={24} />
               </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
+              <h3 className="deliverable-title">Push & Interactive Alerts</h3>
               <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                Advanced targeted notification system (Firebase/OneSignal) with deep-linking protocols that redirect users directly to campaign pages.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Flow Planning & Specs</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We outline every screen transition path, plan local vs online storage states, configure backend API triggers, and document specifications.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">UI/UX & Wireframes</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We design responsive app screens in Figma, focusing on thumb zone reaches, clear tap interactions, and branding guidelines.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Development & Logic</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We write modular typescript code, hook local storage variables, configure state logic (Redux/Zustand), and hook online API endpoints.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Submission & Release</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We compile release bundles, generate secure provisioning profiles and signing keys, compile assets, and submit to App Store and Google Play.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Responsive. High performance.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                We engineer apps that load in milliseconds and don't drain the user's phone resources. Clean, modular code structure ensures simple long-term edits.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Single Codebase Sync</h4>
+                  <p>We leverage cross-platform tools to build for both platforms simultaneously, cutting development costs and release delays in half.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>Robust Data Security</h4>
+                  <p>We compile secure code bundles, encrypt local SQLite files, and configure server SSL tunnels to prevent corporate leaks.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Push-Notification Engine</h4>
+                  <p>We configure trigger sequences that remind users of abandoned cards or custom milestones, boosting daily usage rates by 25%+.</p>
                 </div>
               </div>
             </div>

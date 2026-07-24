@@ -341,9 +341,277 @@
   font-size: 0.85rem;
 }
 
+
+
+/* Vision Section */
+.about-vision-section {
+  padding: 8rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.vision-quote {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-paper);
+}
+
+.vision-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.vision-right p {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-paper-muted);
+}
+
+/* Team Section */
+.about-team-section {
+  padding: 8rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.team-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.team-header-left {
+  text-align: left;
+}
+
+.team-badge {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-lime);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.team-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--color-paper);
+}
+
+.team-nav-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.team-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-paper);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.team-nav-btn:hover:not(:disabled) {
+  background: var(--color-lime);
+  border-color: var(--color-lime);
+  color: var(--color-ink);
+  box-shadow: 0 0 15px rgba(199, 255, 36, 0.35);
+}
+
+.team-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.team-accordion-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.team-accordion-track {
+  display: flex;
+  gap: 1.25rem;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-accordion-panel {
+  position: relative;
+  flex: 0 0 calc(25% - 0.9375rem);
+  height: 540px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex-basis 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  filter: grayscale(100%);
+}
+
+.team-accordion-panel:hover {
+  flex: 0 0 calc(45% - 0.9375rem);
+  filter: grayscale(0%);
+  border-color: rgba(199, 255, 36, 0.45);
+  box-shadow: 0 30px 60px -25px rgba(199, 255, 36, 0.15);
+}
+
+.panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 11, 10, 0.1) 0%,
+    rgba(10, 11, 10, 0.45) 60%,
+    rgba(10, 11, 10, 0.95) 100%
+  );
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.team-accordion-panel:hover .panel-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(199, 255, 36, 0.02) 0%,
+    rgba(10, 11, 10, 0.35) 50%,
+    rgba(10, 11, 10, 0.98) 100%
+  );
+}
+
+.panel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.panel-header-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(10, 11, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+  transform: translateY(-10px);
+}
+
+.team-accordion-panel:hover .panel-header-icon {
+  background: var(--color-lime);
+  border-color: var(--color-lime);
+  color: var(--color-ink);
+  transform: translateY(0);
+  opacity: 1;
+  box-shadow: 0 0 15px var(--color-lime);
+}
+
+.panel-main-info {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.panel-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-paper);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.panel-role {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.4s ease;
+}
+
+.team-accordion-panel:hover .panel-role {
+  color: var(--color-lime);
+}
+
+.panel-expanded-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, margin-top 0.4s ease;
+  margin-top: 0;
+}
+
+.team-accordion-panel:hover .panel-expanded-details {
+  max-height: 180px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.panel-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-paper-muted);
+  margin-bottom: 1.25rem;
+}
+
+.panel-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+}
+
 @media (max-width: 1024px) {
   .overview-grid,
-  .timeline-grid {
+  .timeline-grid,
+  .vision-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -352,12 +620,61 @@
   }
   .about-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .team-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .team-nav-buttons {
+    display: none;
+  }
+  
+  .team-accordion-track {
+    transform: none !important;
+    flex-direction: column;
+    height: auto;
+    gap: 1.5rem;
+  }
+  
+  .team-accordion-panel {
+    flex: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    filter: grayscale(0%);
+  }
+  
+  .team-accordion-panel:hover {
+    flex: none;
+    box-shadow: 0 15px 30px -15px rgba(199, 255, 36, 0.12);
+  }
+  
+  /* Only show Name & Role on mobile, hide detailed descriptions, metas, and top-right icons */
+  .panel-expanded-details,
+  .panel-header-icon {
+    display: none !important;
+  }
+  
+  /* Hide the large black overlapping watermark icon on mobile view */
+  .cta-watermark {
+    display: none !important;
   }
 }
 
 @media (max-width: 640px) {
-  .values-grid,
-  .about-stats-grid {
+  .values-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Keep the stats bar 2x2 grid centered on mobile */
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }

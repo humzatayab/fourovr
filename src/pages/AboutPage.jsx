@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Code2, Palette, Bot, TrendingUp, ArrowLeft, ArrowRight, Users, Smartphone, Video, Box } from 'lucide-react';
 import './AboutPage.css';
+import atiq from '../assets/Team/atique.png';
+import hamza from '../assets/Team/hamza.png';
+import mohsin from '../assets/Team/mohsin.png';
+import zain_dev from '../assets/Team/zain-dev.png';
+import soban from '../assets/Team/soban.png';
 
 const stats = [
   { value: '10+', label: 'Projects & brands scaled' },
@@ -69,7 +75,84 @@ const tickerItems = [
   'UI/UX Design'
 ];
 
+const teamMembers = [
+  {
+    name: 'Hamza Tayyab',
+    role: 'Founder & Creative Director',
+    desc: 'Creative leader with 7 years of professional experience in graphic design, specializing in innovative visual strategies, brand identity, and high-impact digital design projects.',
+    meta: 'SKILLS: Creative Direction / Brand Design / Visual Strategy',
+    image: hamza,
+    icon: Palette
+  },
+  {
+    name: 'Hanzla Madni',
+    role: 'Video Editor & Motion Designer',
+    desc: 'Creates engaging video content, dynamic motion graphics, and high-quality visual animations for digital platforms.',
+    meta: 'EXPERTISE: Video Editing / Motion Graphics',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600',
+    icon: Video
+  },
+  {
+    name: 'Usama',
+    role: '3D Artist',
+    desc: 'Designs and animates high-quality 3D models, environments, and visual effects using Blender, After Effects, and other advanced 3D software.',
+    meta: 'TOOLS: Blender / After Effects / 3D',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600',
+    icon: Box
+  },
+  {
+    name: 'Muhammad Soban',
+    role: 'Head of Growth',
+    desc: 'Drives scalable business growth through high-converting paid media strategies, specializing in Meta Ads, TikTok Ads, and Google Ads.',
+    meta: 'EXPERTISE: Meta Ads / TikTok Ads / Google Ads',
+    image: soban,
+    icon: TrendingUp
+  },
+  {
+    name: 'Zain',
+    role: 'Senior MERN Stack Developer',
+    desc: 'Builds robust and scalable full-stack web applications, specializing in MongoDB, Express.js, React, and Node.js architecture.',
+    meta: 'STACK: MongoDB / Express / React / Node',
+    image: zain_dev,
+    icon: Code2
+  },
+  {
+    name: 'Atiq Malik',
+    role: 'Junior Graphic Designer',
+    desc: 'Assists in creating engaging visual content, designing social media graphics, and maintaining consistent brand aesthetics.',
+    meta: 'SKILLS: Visual Design / Social Media Graphics',
+    image: atiq,
+    icon: Palette
+  },
+  {
+    name: 'Mohsin',
+    role: 'Social Media Manager',
+    desc: 'Manages social media presence, develops engaging content calendars, and builds active online communities across digital platforms.',
+    meta: 'EXPERTISE: Content Strategy / Community Management',
+    image: mohsin,
+    icon: Smartphone
+  },
+  {
+    name: 'Kiran',
+    role: 'Client & Lead Manager',
+    desc: 'Manages inbound leads, handles client communications, and ensures smooth onboarding and excellent customer relations.',
+    meta: 'EXPERTISE: Client Relations / Lead Management',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=600',
+    icon: Users
+  }
+];
+
 export default function AboutPage() {
+  const [startIndex, setStartIndex] = useState(0);
+
+  const handlePrev = () => {
+    setStartIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setStartIndex((prev) => Math.min(prev + 1, teamMembers.length - 4));
+  };
+
   return (
     <div className="about-page-wrapper">
       {/* 1. About Hero Header */}
@@ -96,7 +179,7 @@ export default function AboutPage() {
                 We're a digital agency obsessed with one thing: turning digital into measurable growth for the businesses we partner with.
               </h2>
             </div>
-            
+
             <div className="overview-right">
               <div className="team-image-container">
                 <img src="/about-team.png" alt="FOUROVR Agency Team" className="team-img" />
@@ -113,6 +196,28 @@ export default function AboutPage() {
                 <div className="about-stat-label">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="about-vision-section">
+        <div className="container">
+          <div className="vision-grid">
+            <div className="vision-left">
+              <div className="about-badge text-lime">( OUR VISION )</div>
+              <h2 className="vision-quote">
+                To eliminate digital bloat, double output with AI, and engineer clean code that converts.
+              </h2>
+            </div>
+            <div className="vision-right">
+              <p>
+                We envision a digital landscape where websites are ultra-fast, user interfaces are clean, and software automations handle repetitive overheads to multiply developer output.
+              </p>
+              <p>
+                Our team coordinates visual identity designers, full-stack programmers, and growth managers into a unified ecosystem to design custom systems that scale.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -163,6 +268,67 @@ export default function AboutPage() {
                 <p className="milestone-desc">{m.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="about-team-section">
+        <div className="container">
+          <div className="team-header-row">
+            <div className="team-header-left">
+              <div className="team-badge">( OUR TEAM )</div>
+              <h2 className="team-title">The brains behind<br />the screens</h2>
+            </div>
+            <div className="team-nav-buttons">
+              <button
+                onClick={handlePrev}
+                className="team-nav-btn"
+                disabled={startIndex === 0}
+              >
+                <ArrowLeft size={18} />
+              </button>
+              <button
+                onClick={handleNext}
+                className="team-nav-btn"
+                disabled={startIndex === teamMembers.length - 4}
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+
+          <div className="team-accordion-wrapper">
+            <div
+              className="team-accordion-track"
+              style={{ transform: `translateX(calc(-${startIndex} * (25% + 0.3125rem)))` }}
+            >
+              {teamMembers.map((member, idx) => {
+                const Icon = member.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="team-accordion-panel"
+                    style={{ backgroundImage: `url(${member.image})` }}
+                  >
+                    <div className="panel-overlay"></div>
+                    <div className="panel-content">
+                      <div className="panel-header-icon">
+                        <Icon size={18} />
+                      </div>
+                      <div className="panel-main-info">
+                        <h3 className="panel-name">{member.name}</h3>
+                        <span className="panel-role">{member.role}</span>
+                      </div>
+                      <div className="panel-expanded-details">
+                        <p className="panel-desc">{member.desc}</p>
+                        <div className="panel-meta">{member.meta}</div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

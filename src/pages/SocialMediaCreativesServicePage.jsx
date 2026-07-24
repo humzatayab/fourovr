@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Code, Layers, ShieldCheck, Sparkles, ArrowUpRight, Cpu, Clock, Terminal } from 'lucide-react';
+import { Sparkles, Image, ArrowUpRight, Share2, MessageSquare, Layout, Clock, Target, Palette } from 'lucide-react';
 import CallToActionSection from '../components/CallToActionSection';
 import './ServiceDetailPage.css';
 
-export default function WebDevServicePage() {
+export default function SocialMediaCreativesServicePage() {
   return (
     <div className="service-detail-wrapper">
       <div className="service-detail-glow"></div>
@@ -12,18 +12,18 @@ export default function WebDevServicePage() {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <div className="service-number">Service 05</div>
+            <div className="service-number">Service 04</div>
             <h1 className="service-title">
-              Web Development & <br />
-              <span className="outline-text">Web Apps</span>
+              Social Media <br />
+              <span className="outline-text">Creatives</span>
             </h1>
             <p className="service-hero-desc">
-              We engineer fast, responsive, conversion-focused websites and complex MERN & Next.js web applications tailored to scale your brand.
+              We design high-converting static posts, seamless swipe carousels, and visual templates that turn casual scrollers into loyal followers.
             </p>
             
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">
-                <span>Start your app</span>
+                <span>Get social designs</span>
                 <ArrowUpRight size={18} />
               </Link>
               <Link 
@@ -57,28 +57,28 @@ export default function WebDevServicePage() {
                 <span className="stat-label">AVERAGE TIMELINE</span>
                 <Clock className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">4 - 8 Weeks</div>
+              <div className="stat-val">1 - 2 Weeks</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">TECH STACK</span>
-                <Layers className="stat-icon" size={18} />
+                <span className="stat-label">DELIVERED FORMATS</span>
+                <Image className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">React / Next.js / Node</div>
+              <div className="stat-val">Figma, Canva, PNG, PDF</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">PERFORMANCE</span>
-                <Cpu className="stat-icon" size={18} />
+                <span className="stat-label">GOAL FOCUS</span>
+                <Target className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">95+ Lighthouse Score</div>
+              <div className="stat-val">CTR, Engagement, Followers</div>
             </div>
             <div className="service-stat-card">
               <div className="stat-header">
-                <span className="stat-label">CORE CODE</span>
-                <Terminal className="stat-icon" size={18} />
+                <span className="stat-label">BRAND SYNC</span>
+                <Palette className="stat-icon" size={18} />
               </div>
-              <div className="stat-val">100% Custom Built</div>
+              <div className="stat-val">100% Palette Alignment</div>
             </div>
           </div>
         </div>
@@ -95,31 +95,31 @@ export default function WebDevServicePage() {
           <div className="deliverables-grid">
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Code size={24} />
+                <Layout size={24} />
               </div>
-              <h3 className="deliverable-title">Custom Web Applications</h3>
+              <h3 className="deliverable-title">Seamless Swipe Carousels</h3>
               <p className="deliverable-desc">
-                High-performance Next.js architectures, MERN Stack systems, secure REST/GraphQL API backends, and fully responsive frontend designs.
+                Engaging multi-slide storytellers (Instagram/LinkedIn) designed with seamless transitions to increase interaction rates and profile visits.
               </p>
             </div>
 
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Layers size={24} />
+                <Image size={24} />
               </div>
-              <h3 className="deliverable-title">Interactive Dashboards</h3>
+              <h3 className="deliverable-title">High-Converting Statics</h3>
               <p className="deliverable-desc">
-                Clean, role-based dashboards, administrative panels, real-time data visual charts, and customer management portal interfaces.
+                Scroll-stopping promotional posts, product feature highlights, client testimonial graphics, and announcements styled to stand out in the feed.
               </p>
             </div>
 
             <div className="deliverable-card">
               <div className="deliverable-icon-wrap">
-                <Terminal size={24} />
+                <Sparkles size={24} />
               </div>
-              <h3 className="deliverable-title">APIs & Headless CMS</h3>
+              <h3 className="deliverable-title">Custom Brand Templates</h3>
               <p className="deliverable-desc">
-                API integrations with CRM platforms, headless Sanity/Strapi setups, Stripe/PayPal payment systems, and custom database webhooks.
+                Fully editable, organized templates created in Figma or Canva, letting your internal team post updates quickly while keeping the brand consistency.
               </p>
             </div>
           </div>
@@ -138,9 +138,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">01</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Specs & Stack Planning</h3>
+                <h3 className="workflow-step-title">Content & Topic Strategy</h3>
                 <p className="workflow-step-desc">
-                  We audit your app requirements, document functional logic blueprints, define endpoints, and select the optimal database and server architecture.
+                  We audit your profile goals, determine topics of interest, choose high-value metrics to showcase, and plan the visual themes.
                 </p>
               </div>
             </div>
@@ -148,9 +148,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">02</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Database & Backend Build</h3>
+                <h3 className="workflow-step-title">Copywriting & Hook Outline</h3>
                 <p className="workflow-step-desc">
-                  We configure SQL or NoSQL databases, construct secure API endpoints, set up authentication middleware, and deploy raw server logic.
+                  We outline slides and write copy. We focus on catchy slide titles, clear, readable sentences, and highly visible calls-to-action.
                 </p>
               </div>
             </div>
@@ -158,9 +158,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">03</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Frontend Component Code</h3>
+                <h3 className="workflow-step-title">Creative Graphic Design</h3>
                 <p className="workflow-step-desc">
-                  We translate mockups into semantic React/Next.js pages, wire up APIs, incorporate custom transitions, and optimize state management.
+                  We lay out the graphics, place relevant mockups/images, configure the typography hierarchy, and add fine brand visual elements.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@ export default function WebDevServicePage() {
             <div className="workflow-step">
               <div className="workflow-dot">04</div>
               <div className="workflow-card">
-                <h3 className="workflow-step-title">Optimization & Deploy</h3>
+                <h3 className="workflow-step-title">Review & Asset Handoff</h3>
                 <p className="workflow-step-desc">
-                  We run thorough speed testing, compress visual assets, optimize SEO headers, configure SSL credentials, and deploy live to Vercel or AWS.
+                  We review color contrast, readability on small screens, adjust according to feedback, and deliver production PNGs and edit links.
                 </p>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function WebDevServicePage() {
           <div className="why-grid">
             <div className="why-intro">
               <div className="section-tag">Why FOUROVR</div>
-              <h2 className="section-main-title">Clean code. High speed.</h2>
+              <h2 className="section-main-title">Feed optimization.</h2>
               <p style={{ color: 'var(--color-paper-muted)', marginTop: '1.5rem', lineHeight: 1.6 }}>
-                We don't use slow builders or bloated code template packages. We build tailored systems engineered from the ground up for maximum speed and longevity.
+                Average designs get skipped. We combine data-driven copy with high-end, clean aesthetics that earn attention and build followers.
               </p>
             </div>
             
@@ -194,24 +194,24 @@ export default function WebDevServicePage() {
               <div className="why-item">
                 <div className="why-num">01</div>
                 <div className="why-content">
-                  <h4>Guaranteed Speed Score</h4>
-                  <p>Our code structures are designed to load under 1.5 seconds, ensuring higher search rankings on Google and lower customer drop rates.</p>
+                  <h4>Scroll-Stopping Layouts</h4>
+                  <p>We use high-contrast text layers, sharp imagery, and bold spacing rules that pull visual focus from surrounding clutter in the social feeds.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">02</div>
                 <div className="why-content">
-                  <h4>Custom Architecture</h4>
-                  <p>Your codebase is built cleanly with reusable components, ensuring simple long-term edits and the ability to integrate advanced AI features easily.</p>
+                  <h4>Copywriting that Sells</h4>
+                  <p>We don't just design; we structure copy to address reader pain points, make complex ideas simple, and drive users to take action.</p>
                 </div>
               </div>
 
               <div className="why-item">
                 <div className="why-num">03</div>
                 <div className="why-content">
-                  <h4>Security First</h4>
-                  <p>We deploy strict authentication tokens, secure API routing gates, database encryption, and automated backups to keep business data secure.</p>
+                  <h4>Consistent Visual Authority</h4>
+                  <p>Every post reinforces your premium identity by adhering strictly to your brand book's typography, colors, and asset styling guidelines.</p>
                 </div>
               </div>
             </div>

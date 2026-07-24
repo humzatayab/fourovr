@@ -1,284 +1,353 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Check } from 'lucide-react';
+import {
+  ArrowUpRight, PenTool, Layout, Film, Sparkles,
+  Code, Smartphone, ShoppingBag, Monitor,
+  Bot, Workflow, BarChart3, Cpu,
+  Share2, Search, Mail, Megaphone, ArrowDown
+} from 'lucide-react';
 import './ServicesPage.css';
 
-const servicesList = [
+const servicesData = [
   {
-    id: 'web-dev',
-    title: 'Website Development',
-    desc: 'Custom React & Next.js websites built for speed, conversion, and scalability. Designed to turn passive visitors into active customers.',
-    features: [
-      'Custom Next.js & React architecture',
-      '95+ Lighthouse speed score guaranteed',
-      'Technical SEO & schema markup',
-      'Responsive mobile-first design'
-    ],
-    meta: [
-      { label: 'STACK', val: 'React / Next.js' },
-      { label: 'SPEED', val: '95+ Performance' },
-      { label: 'CODE', val: '100% Custom' },
-      { label: 'TIMELINE', val: '4-8 weeks' }
-    ],
-    imageTheme: 'code'
+    id: 'creative',
+    title: 'Creative Services',
+    desc: 'Bold visuals and user-centric interfaces engineered to leave a lasting mark and convert viewers.',
+    color: '#ff6b9d',
+    badge: 'CREATIVE',
+    items: [
+      {
+        title: 'Branding & Identity',
+        desc: 'Logos, color harmony schemes, visual guidelines, and corporate strategy books.',
+        bullets: ['Logo & Mark Systems', 'Complete Brand Book', 'Visual Style Guidelines'],
+        link: '/services/branding',
+        icon: PenTool
+      },
+      {
+        title: 'UI/UX Design',
+        desc: 'SaaS interfaces, mobile app layouts, responsive wireframes, and prototypes in Figma.',
+        bullets: ['Wireframing & UX Maps', 'Pixel-Perfect UI Screen Designs', 'Interactive Prototypes'],
+        link: '/services/ui-ux',
+        icon: Layout
+      },
+      {
+        title: 'Video & Motion',
+        desc: 'High-impact kinetic typography, 2D/3D visual effects, explainer promos, and reels edits.',
+        bullets: ['Explainer & Promo Videos', 'Short-Form Ad Creatives', 'Motion Typography & VFX'],
+        link: '/services/video-motion',
+        icon: Film
+      },
+      {
+        title: 'Social Creatives',
+        desc: 'Scroll-stopping static ads, seamless swipe carousels, and custom Figma templates.',
+        bullets: ['Swipe Carousel Layouts', 'Engagement Static Graphics', 'Custom Figma Templates'],
+        link: '/services/social-media-creatives',
+        icon: Sparkles
+      }
+    ]
   },
   {
-    id: 'ai-automations',
-    title: 'AI & Workflow Automations',
-    desc: 'Automate repetitive tasks, double team productivity, and integrate smart AI chatbots and custom LLM workflows into your business.',
-    features: [
-      'Custom AI Agent & LLM workflows',
-      'Shopify & CRM automated pipelines',
-      'Smart customer support chatbots',
-      'OpenAI & Claude API integrations'
-    ],
-    meta: [
-      { label: 'ENGINE', val: 'OpenAI / Claude' },
-      { label: 'PRODUCTIVITY', val: '2X Output' },
-      { label: 'CRM', val: 'Shopify & HubSpot' },
-      { label: 'TIMELINE', val: '2-4 weeks' }
-    ],
-    imgSrc: '/service-ai.png'
+    id: 'development',
+    title: 'Development & Apps',
+    desc: 'Engineered backend structures, fast frontend screens, and native mobile apps built to scale.',
+    color: '#c7ff24',
+    badge: 'DEVELOPMENT',
+    items: [
+      {
+        title: 'Web Development',
+        desc: 'Custom React & Next.js architectures, fast serverless setups, and MERN stack systems.',
+        bullets: ['Next.js React Frontend App', '95+ Lighthouse Score Guaranteed', 'Clean, Scalable API Core'],
+        link: '/services/web-development',
+        icon: Code
+      },
+      {
+        title: 'Mobile Apps',
+        desc: 'High-performance iOS and Android app development using React Native or Flutter.',
+        bullets: ['React Native / Flutter Coding', 'Offline SQLite Database Sync', 'App Store Submission'],
+        link: '/services/mobile-apps',
+        icon: Smartphone
+      },
+      {
+        title: 'E-Commerce Stores',
+        desc: 'Shopify configurations, customized checkout channels, conversion triggers, and CRM syncs.',
+        bullets: ['Shopify Custom Templates', 'Fast Checkouts & Persistent Carts', 'Klaviyo Invoice Integration'],
+        link: '/services/ecommerce',
+        icon: ShoppingBag
+      },
+      {
+        title: 'Desktop Software',
+        desc: 'Cross-platform applications compiled using Electron or Tauri for low resource loads.',
+        bullets: ['DMG & MSI Executable Packages', 'Tauri-Rust Resource Savings', 'Encrypted SQLite Databases'],
+        link: '/services/desktop-apps',
+        icon: Monitor
+      }
+    ]
   },
   {
-    id: 'seo',
-    title: 'SEO & Search Optimization',
-    desc: 'Data-driven organic search strategies to dominate Google search rankings, increase qualified traffic, and drive sustainable growth.',
-    features: [
-      'Comprehensive technical SEO audit',
-      'On-page & content strategy',
-      'High-intent keyword targeting',
-      'Authority backlink acquisition'
-    ],
-    meta: [
-      { label: 'AUDIT', val: 'Full Technical' },
-      { label: 'SEARCH', val: 'Google Rank #1' },
-      { label: 'METRICS', val: 'Revenue Tied' },
-      { label: 'TIMELINE', val: 'Ongoing Growth' }
-    ],
-    imageTheme: 'analytics'
+    id: 'automations',
+    title: 'AI & Automations',
+    desc: 'Scale smarter with custom AI agents, workflow triggers, and secure database data models.',
+    color: '#a78bfa',
+    badge: 'AUTOMATIONS',
+    items: [
+      {
+        title: 'AI Agents',
+        desc: 'Autonomous custom LLM assistants, chat widgets, prompt guides, and RAG knowledge bases.',
+        bullets: ['Autonomous Task Execution', '24/7 Auto Support Chatbots', 'Custom Vector Database RAG'],
+        link: '/services/ai-agents',
+        icon: Bot
+      },
+      {
+        title: 'Workflow Automation',
+        desc: 'Connecting software platforms, custom Zapier/Make tasks, and conditional logic flows.',
+        bullets: ['Zapier & Make Setup', 'Auto CRM Onboarding Sync', 'Custom API Webhook Scripts'],
+        link: '/services/workflow-automation',
+        icon: Workflow
+      },
+      {
+        title: 'Data Pipelines',
+        desc: 'Secure ingestion pipelines, ETL queries, SQL cleaning transformations, and analytics charts.',
+        bullets: ['Python Ingestion Scripts', 'BigQuery/Snowflake Schema Setup', 'BI Looker Studio Dashboards'],
+        link: '/services/data-pipelines',
+        icon: BarChart3
+      },
+      {
+        title: 'AI Stack Integration',
+        desc: 'Embedding OpenAI, Claude, or Gemini APIs into SaaS systems, handling prompt variables.',
+        bullets: ['Streaming Token API Connectors', 'Generative Design Pipelines', 'Semantic Embedding Search'],
+        link: '/services/ai-integration',
+        icon: Cpu
+      }
+    ]
   },
   {
-    id: 'digital-marketing',
-    title: 'Digital Marketing',
-    desc: 'Multi-channel marketing campaigns across Meta, Google, LinkedIn, and YouTube engineered to capture market share.',
-    features: [
-      'Full-funnel growth strategy',
-      'Audience targeting & segmentation',
-      'High-converting ad copy & design',
-      'Continuous campaign optimization'
-    ],
-    meta: [
-      { label: 'PLATFORMS', val: 'Meta / Google / LinkedIn' },
-      { label: 'ROAS', val: '4X+ Average' },
-      { label: 'CAMPAIGN', val: 'Full-Funnel' },
-      { label: 'TIMELINE', val: 'Monthly Retainer' }
-    ],
-    imageTheme: 'marketing'
-  },
-  {
-    id: 'paid-ads',
-    title: 'Paid Advertising & PPC',
-    desc: 'Laser-focused paid acquisition on Meta Ads and Google Search/Shopping to turn ad spend into predictable revenue.',
-    features: [
-      'Facebook & Instagram Ad campaigns',
-      'Google Search & Shopping PPC',
-      'Retargeting & lookalike audiences',
-      'Server-side pixel & CAPI tracking'
-    ],
-    meta: [
-      { label: 'TRACKING', val: 'CAPI & Pixel' },
-      { label: 'FOCUS', val: 'High ROAS' },
-      { label: 'CREATIVE', val: 'Dynamic Variants' },
-      { label: 'TIMELINE', val: 'Monthly Retainer' }
-    ],
-    imageTheme: 'paid'
-  },
-  {
-    id: 'email-marketing',
-    title: 'Email & SMS Marketing',
-    desc: 'Automated email flows and targeted broadcasts to increase customer lifetime value and drive repeat revenue.',
-    features: [
-      'Klaviyo & Mailchimp automated flows',
-      'Welcome series & abandoned cart',
-      'Segmented customer campaigns',
-      'Continuous A/B subject testing'
-    ],
-    meta: [
-      { label: 'PLATFORM', val: 'Klaviyo / Mailchimp' },
-      { label: 'FLOWS', val: 'Automated Sales' },
-      { label: 'REVENUE', val: '20-30% Incremental' },
-      { label: 'TIMELINE', val: 'Monthly Management' }
-    ],
-    imageTheme: 'email'
-  },
-  {
-    id: 'branding',
-    title: 'Branding & Strategy',
-    desc: 'Complete brand design system, logo guidelines, typography, and visual language that makes your business unmissable.',
-    features: [
-      'Logo design & brand guidelines',
-      'Color palette & typography system',
-      'Social media & marketing collateral',
-      'Brand positioning strategy'
-    ],
-    meta: [
-      { label: 'DELIVERABLE', val: 'Full Brand Kit' },
-      { label: 'FORMAT', val: 'Figma & Vector' },
-      { label: 'SYSTEM', val: 'Complete Brand Book' },
-      { label: 'TIMELINE', val: '3-5 weeks' }
-    ],
-    imageTheme: 'branding'
-  },
-  {
-    id: 'ui-ux',
-    title: 'UI/UX Interface Design',
-    desc: 'Intuitive digital product interfaces and conversion-focused web layouts designed in Figma with pixel perfection.',
-    features: [
-      'Wireframing & interactive prototypes',
-      'User experience research & testing',
-      'Scalable Figma design systems',
-      'High-fidelity UI components'
-    ],
-    meta: [
-      { label: 'TOOL', val: 'Figma Master' },
-      { label: 'PROTOTYPE', val: 'Clickable Demo' },
-      { label: 'COMPONENTS', val: 'Design System' },
-      { label: 'TIMELINE', val: '3-6 weeks' }
-    ],
-    imageTheme: 'uiux'
+    id: 'marketing',
+    title: 'Growth Marketing',
+    desc: 'Targeted campaign layers, SEO ranking audits, and conversion flows designed for sales ROI.',
+    color: '#38bdf8',
+    badge: 'MARKETING',
+    items: [
+      {
+        title: 'Social Media Management',
+        desc: 'Feed profile optimization, weekly content calendars, organic follow growth, and analytics.',
+        bullets: ['Profile Optimization Audits', 'Monthly Content Calendars', 'Follower Analytics Reports'],
+        link: '/services/social-media-marketing',
+        icon: Share2
+      },
+      {
+        title: 'SEO & Search Growth',
+        desc: 'Technical keyword search optimization, high-domain backlinks, page audits, and Google Console ranks.',
+        bullets: ['Technical Site Index Scans', 'Competitor Keyword Research', 'Domain Backlink Campaigns'],
+        link: '/services/seo-growth',
+        icon: Search
+      },
+      {
+        title: 'Email & SMS Campaigns',
+        desc: 'High-converting abandoned cart flows, weekly mail broadcasts, opt-ins, and A/B test lists.',
+        bullets: ['Welcome & Cart Lifecycles', 'Klaviyo Newsletter Templates', 'Targeted Customer Segments'],
+        link: '/services/email-campaigns',
+        icon: Mail
+      },
+      {
+        title: 'Paid Ads & PPC',
+        desc: 'ROI campaign management on Meta/Google networks, Conversion API setups, and keyword bids.',
+        bullets: ['Campaign Bid Cap Strategy', 'Ad Copy & Image testing', 'Conversions API GTM Hook'],
+        link: '/services/paid-ads',
+        icon: Megaphone
+      }
+    ]
   }
 ];
 
-const tickerItems = [
-  'Website Development',
-  'AI Automations',
-  'SEO Services',
-  'Paid Ads',
-  'Branding',
-  'UI/UX Design'
-];
-
 export default function ServicesPage() {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Offset for sticky nav header
+      const yOffset = -90;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="services-page-wrapper">
+      <div className="services-page-glow-top"></div>
+
       {/* Hero Header */}
       <section className="services-hero-section">
         <div className="container">
-          <div className="services-badge text-lime">( SERVICES )</div>
+          <div className="services-badge">( SERVICES )</div>
           <h1 className="services-hero-title">
-            Everything you<br />
-            need to grow<br />
+            Capabilities built<br />
+            to scale your brand<br />
             online.
           </h1>
           <p className="services-hero-subtitle">
-            End-to-end digital capabilities designed to generate revenue, not just traffic.
+            We partner with ambitious startups and enterprises to deliver custom software, design systems, and marketing solutions that generate revenue.
           </p>
-        </div>
-      </section>
 
-      {/* Services Showcase Blocks */}
-      <section className="services-showcase-section">
-        <div className="container">
-          <div className="showcase-list">
-            {servicesList.map((service, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <div
-                  key={service.id}
-                  id={service.id}
-                  className={`showcase-block ${isEven ? 'layout-normal' : 'layout-reverse'}`}
-                >
-                  {/* Text Column */}
-                  <div className="showcase-info">
-                    <h2 className="showcase-title">{service.title}</h2>
-                    <p className="showcase-desc">{service.desc}</p>
-
-                    {/* Features Bullet List */}
-                    <ul className="showcase-features">
-                      {service.features.map((feat, i) => (
-                        <li key={i}>
-                          <Check size={16} className="feature-icon" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* 4 Meta Grid */}
-                    <div className="showcase-meta-grid">
-                      {service.meta.map((m, i) => (
-                        <div key={i} className="meta-card">
-                          <div className="meta-label">{m.label}</div>
-                          <div className="meta-val">{m.val}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link to="/contact" className="btn-primary showcase-btn">
-                      <span>Get started</span>
-                      <ArrowUpRight size={18} />
-                    </Link>
-                  </div>
-
-                  {/* Visual Card Column */}
-                  <div className="showcase-visual">
-                    <div className="visual-card">
-                      {service.imgSrc ? (
-                        <img src={service.imgSrc} alt={service.title} className="visual-img" />
-                      ) : (
-                        <div className={`mockup-bg mockup-${service.imageTheme}`}>
-                          <div className="mockup-content">
-                            <span className="mockup-pill">{service.title}</span>
-                          </div>
-                        </div>
-                      )}
-                      <div className="visual-card-overlay">
-                        <span className="overlay-title">{service.title}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Jump Links Container */}
+          <div className="jump-links-container">
+            {servicesData.map((cat) => (
+              <button
+                key={cat.id}
+                className="jump-link-badge"
+                style={{ '--cat-color': cat.color }}
+                onClick={() => scrollToSection(cat.id)}
+              >
+                <span>{cat.badge}</span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action Banner & Marquee Ticker */}
-      <section className="services-cta-section">
-        <div className="services-cta-banner">
-          <div className="cta-watermark">
-            <svg viewBox="0 0 100 100" fill="none" width="360" height="360">
-              <g stroke="currentColor" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M30 31 L44 49" />
-                <path d="M61 28 L44 49" />
-                <path d="M44 49 L32 70" />
-              </g>
-              <rect x="19" y="20" width="22" height="22" rx="7.5" fill="currentColor" />
-              <rect x="46" y="13" width="30" height="30" rx="10" fill="currentColor" />
-              <rect x="33" y="38" width="22" height="22" rx="7.5" fill="currentColor" />
-              <rect x="21" y="59" width="22" height="22" rx="7.5" fill="currentColor" />
-            </svg>
-          </div>
-
+      {/* Structured Category Sections */}
+      {servicesData.map((category) => (
+        <section
+          key={category.id}
+          id={category.id}
+          className="services-category-section"
+          style={{ '--cat-color': category.color }}
+        >
           <div className="container">
-            <div className="cta-tagline">GET STARTED</div>
-            <h2 className="cta-heading">
-              Let's find your<br />
-              fastest path to<br />
-              growth.
-            </h2>
+            {/* Category Header */}
+            <div className="category-header-wrap">
+              <div className="category-tag">OUR SERVICES</div>
+              <h2 className="category-title">{category.title}</h2>
+              <p className="category-desc">{category.desc}</p>
+            </div>
 
-            <div className="cta-bottom-row">
-              <p className="cta-subtext">
+            {/* Sub-Services Grid */}
+            <div className="services-grid">
+              {category.items.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="service-card">
+                    <div className="card-top">
+                      <div className="card-header-row">
+                        <div className="service-card-icon-wrap">
+                          <Icon size={20} />
+                        </div>
+                        <ArrowUpRight className="card-arrow-icon" size={18} />
+                      </div>
+                      <h3 className="service-card-title">{item.title}</h3>
+                      <p className="service-card-desc">{item.desc}</p>
+                    </div>
+
+                    <div className="card-bottom">
+                      <ul className="service-card-bullets">
+                        {item.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx}>
+                            <span className="bullet-dot"></span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link to={item.link} className="service-card-link">
+                        <span>Explore Service</span>
+                        <ArrowUpRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* Services CTA Banner */}
+      <section className="services-category-section" style={{ borderTop: 'none', paddingBottom: '0' }}>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: 'var(--color-lime)',
+              color: 'var(--color-ink)',
+              borderRadius: '2.5rem',
+              padding: '6rem 4rem',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                right: '5%',
+                bottom: '0',
+                opacity: 0.05,
+                color: 'currentColor',
+                pointerEvents: 'none'
+              }}
+            >
+              <svg viewBox="0 0 100 100" fill="none" width="300" height="300">
+                <g stroke="currentColor" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M30 31 L44 49" />
+                  <path d="M61 28 L44 49" />
+                  <path d="M44 49 L32 70" />
+                </g>
+                <rect x="19" y="20" width="22" height="22" rx="7.5" fill="currentColor" />
+                <rect x="46" y="13" width="30" height="30" rx="10" fill="currentColor" />
+                <rect x="33" y="38" width="22" height="22" rx="7.5" fill="currentColor" />
+                <rect x="21" y="59" width="22" height="22" rx="7.5" fill="currentColor" />
+              </svg>
+            </div>
+
+            <div style={{ position: 'relative', zIndex: 1, maxWidth: '650px' }}>
+              <div style={{ textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.15em', marginBottom: '1.5rem' }}>GET STARTED</div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '2.5rem' }}>
+                Let's find your fastest path to growth.
+              </h2>
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.6, opacity: 0.85, marginBottom: '3rem' }}>
                 Book a free, no-pressure discovery call. We'll audit your current setup and share actionable insights.
               </p>
-              <div className="cta-buttons">
-                <Link to="/contact" className="btn-cta-dark">
+
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    backgroundColor: '#0a0b0a',
+                    color: '#fff',
+                    padding: '0.9rem 1.8rem',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
+                >
                   <span>Book consultation</span>
                   <ArrowUpRight size={18} />
                 </Link>
-                <Link to="/pricing" className="btn-cta-outline">
-                  View pricing
+                <Link
+                  to="/pricing"
+                  style={{
+                    backgroundColor: 'transparent',
+                    color: '#0a0b0a',
+                    border: '1px solid rgba(10, 11, 10, 0.25)',
+                    padding: '0.9rem 1.8rem',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(10, 11, 10, 0.05)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
+                  <span>View pricing</span>
                 </Link>
               </div>
             </div>
